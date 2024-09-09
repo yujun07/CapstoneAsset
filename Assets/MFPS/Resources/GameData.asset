@@ -81,6 +81,11 @@ MonoBehaviour:
     RealSceneName: ExampleLevel
     Preview: {fileID: 21300000, guid: 6566c02619a33c04b83af91ef6aa5026, type: 3}
     NoAllowedGameModes: 
+  - ShowName: DarkCity
+    m_Scene: {fileID: 102900000, guid: 9dd46b493c1396a42b3cf2aa11fde485, type: 3}
+    RealSceneName: 
+    Preview: {fileID: 0}
+    NoAllowedGameModes: 
   AllWeapons:
   - Name: Rifle
     Type: 1
@@ -267,7 +272,7 @@ MonoBehaviour:
     timeLimits: 8403000058020000b00400002c010000
   - ModeName: Elimination
     gameMode: 7
-    isEnabled: 1
+    isEnabled: 0
     supportBots: 1
     AutoTeamSelection: 1
     UnlistGameAfterStarted: 1
@@ -282,7 +287,7 @@ MonoBehaviour:
     timeLimits: 8403000058020000b00400002c010000
   - ModeName: Covert Point
     gameMode: 4
-    isEnabled: 1
+    isEnabled: 0
     supportBots: 0
     AutoTeamSelection: 1
     UnlistGameAfterStarted: 0
@@ -297,7 +302,7 @@ MonoBehaviour:
     timeLimits: 8403000058020000b00400002c010000
   - ModeName: Gun Race
     gameMode: 5
-    isEnabled: 1
+    isEnabled: 0
     supportBots: 0
     AutoTeamSelection: 0
     UnlistGameAfterStarted: 0
@@ -312,7 +317,7 @@ MonoBehaviour:
     timeLimits: 8403000058020000b00400002c010000
   - ModeName: Demolition
     gameMode: 8
-    isEnabled: 1
+    isEnabled: 0
     supportBots: 0
     AutoTeamSelection: 1
     UnlistGameAfterStarted: 1
@@ -327,7 +332,7 @@ MonoBehaviour:
     timeLimits: 7800000058020000b00400002c010000
   - ModeName: Battle Royal
     gameMode: 6
-    isEnabled: 1
+    isEnabled: 0
     supportBots: 0
     AutoTeamSelection: 1
     UnlistGameAfterStarted: 1
@@ -342,7 +347,7 @@ MonoBehaviour:
     timeLimits: 8403000058020000b00400002c010000
   - ModeName: Kill Confirmed
     gameMode: 9
-    isEnabled: 1
+    isEnabled: 0
     supportBots: 1
     AutoTeamSelection: 1
     UnlistGameAfterStarted: 0
