@@ -256,6 +256,10 @@ public class bl_FirstPersonController : bl_FirstPersonControllerBase
     }
     #endregion
 
+    private void Update()
+    {
+        Debug.Log("" + State);
+    }
     /// <summary>
     /// Triggered when the state of this player controller has changed.
     /// </summary>
