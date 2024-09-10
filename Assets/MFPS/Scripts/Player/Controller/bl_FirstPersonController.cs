@@ -253,6 +253,11 @@ public class bl_FirstPersonController : bl_FirstPersonControllerBase
             //player movement
             Move();
         }
+
+        if (bl_GameInput.Crouch(GameInputType.Hold) && State != PlayerState.Sliding && State != PlayerState.Crouching && State != PlayerState.Jumping)
+        {
+            State = PlayerState.Crouching;
+        }
     }
     #endregion
 
@@ -296,7 +301,7 @@ public class bl_FirstPersonController : bl_FirstPersonControllerBase
 
         if (bl_UtilityHelper.isMobile) return;
 
-        if (!m_Jump && State != PlayerState.Crouching && (Time.time - lastJumpTime) > JumpMinRate)
+        if (!m_Jump && (Time.time - lastJumpTime) > JumpMinRate)
         {
             m_Jump = bl_GameInput.Jump();
         }
