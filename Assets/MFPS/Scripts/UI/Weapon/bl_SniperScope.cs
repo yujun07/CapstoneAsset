@@ -55,6 +55,21 @@ public class bl_SniperScope : bl_SniperScopeBase
         aiming = false;
     }
 
+    private void Update()
+    {
+        if (m_gun.isAiming && !m_gun.isReloading)
+        { 
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                m_gun.PlayerReferences.cameraMotion.SetActiveBreathing(false);
+            }
+            if (Input.GetKeyUp(KeyCode.LeftShift))
+            {
+                m_gun.PlayerReferences.cameraMotion.SetActiveBreathing(true, breathingAmplitude);
+            }
+        }
+    }
+
     /// <summary>
     /// 
     /// </summary>
@@ -84,6 +99,7 @@ public class bl_SniperScope : bl_SniperScopeBase
                 {
                     m_gun.PlayerReferences.cameraMotion.SetActiveBreathing(true, breathingAmplitude);
                 }
+                
 
                 aiming = true;
             }
@@ -120,6 +136,7 @@ public class bl_SniperScope : bl_SniperScopeBase
         {
             DistanceText.text = m_dist.ToString("00") + "<size=10>m</size>";
         }
+        
     }
 
     /// <summary>
