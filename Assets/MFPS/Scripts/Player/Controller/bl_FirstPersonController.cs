@@ -254,7 +254,7 @@ public class bl_FirstPersonController : bl_FirstPersonControllerBase
             Move();
         }
 
-        if (bl_GameInput.Crouch(GameInputType.Hold) && State != PlayerState.Sliding && State != PlayerState.Crouching && State != PlayerState.Jumping)
+        if (bl_GameInput.Crouch(GameInputType.Hold) && State != PlayerState.Sliding && State != PlayerState.Crouching && State != PlayerState.Jumping && !m_Jumping)
         {
             State = PlayerState.Crouching;
         }
@@ -306,7 +306,7 @@ public class bl_FirstPersonController : bl_FirstPersonControllerBase
             m_Jump = bl_GameInput.Jump();
         }
 
-        if (State != PlayerState.Jumping && State != PlayerState.Climbing)
+        if (State != PlayerState.Jumping && State != PlayerState.Climbing && !m_Jumping)
         {
             if (forcedCrouch) return;
             if (KeepToCrouch)
