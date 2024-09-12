@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections.Generic;
 using MFPS.Runtime.UI;
+using Unity.VisualScripting;
 
 public class bl_SniperScope : bl_SniperScopeBase
 {
@@ -23,6 +24,9 @@ public class bl_SniperScope : bl_SniperScopeBase
     private Text DistanceText;
     private bool returnedAim = true;
     private bool aiming = false;
+    private bool isHoldBreath = false;
+    private bool canHoldBreath = true;
+    private float HoldBreathGuage = 5;
     RaycastHit m_ray;
     #endregion
 
@@ -58,15 +62,32 @@ public class bl_SniperScope : bl_SniperScopeBase
     private void Update()
     {
         if (m_gun.isAiming && !m_gun.isReloading)
-        { 
-            if (Input.GetKeyDown(KeyCode.LeftShift))
-            {
-                m_gun.PlayerReferences.cameraMotion.SetActiveBreathing(false);
-            }
+        {
             if (Input.GetKeyUp(KeyCode.LeftShift))
             {
-                m_gun.PlayerReferences.cameraMotion.SetActiveBreathing(true, breathingAmplitude);
+                StopHoldBreath();
             }
+            else if (HoldBreathGuage <= 0)
+            {
+                canHoldBreath = false;
+            }
+            else if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                HoldBreath();
+            }
+        }
+
+        if (HoldBreathGuage < 100 && !isHoldBreath)
+        {
+            HoldBreathGuage += Time.deltaTime;
+        }
+        else if (isHoldBreath)
+        {
+            if (HoldBreathGuage <= 0)
+            {
+                canHoldBreath = false;
+            }
+            else HoldBreathGuage -= Time.deltaTime;
         }
     }
 
@@ -156,5 +177,16 @@ public class bl_SniperScope : bl_SniperScopeBase
         {
             m_dist = 0.0f;
         }
+    }
+
+    private void HoldBreath()
+    {
+        isHoldBreath = true;
+    }
+
+    private void StopHoldBreath()
+    {
+        isHoldBreath = false;
+        m_gun.PlayerReferences.cameraMotion.SetActiveBreathing(false);
     }
 }
