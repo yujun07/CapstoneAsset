@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offlineMode: 0
   verifySingleSession: 1
-  UseLobbyChat: 0
+  UseLobbyChat: 1
   UseVoiceChat: 1
   BulletTracer: 1
   DropGunOnDeath: 1
@@ -24,7 +24,7 @@ MonoBehaviour:
   ShowTeamMateHealthBar: 1
   CanChangeTeam: 1
   ShowBlood: 1
-  DetectAFK: 0
+  DetectAFK: 1
   MasterCanKickPlayers: 1
   ArriveKitsCauseDamage: 1
   CalculateNetworkFootSteps: 1
@@ -44,7 +44,7 @@ MonoBehaviour:
   AmmoType: 1
   killFeedWeaponShowMode: 1
   lobbyJoinMethod: 2
-  killCameraType: 1
+  killCameraType: 0
   localKillsShowMode: 0
   switchToPickupWeapon: 1
   onLeaveSpectatorMode: 0
@@ -64,7 +64,7 @@ MonoBehaviour:
   guestNameFormat: Guest {0}
   botsNameFormat: BOT {0}
   SpawnProtectedTime: 5
-  CountDownTime: 10
+  CountDownTime: 5
   PlayerRespawnTime: 7
   MaxFriendsAdded: 25
   BulletHitDetectionStep: 3
@@ -88,7 +88,7 @@ MonoBehaviour:
     Damage: 25
     FireRate: 0.09
     ReloadTime: 2
-    Range: 700
+    Range: 500
     Accuracy: 1
     Weight: 2
     Unlockability:
@@ -155,7 +155,7 @@ MonoBehaviour:
     Active: 1
     Damage: 70
     FireRate: 1.8
-    ReloadTime: 3
+    ReloadTime: 2.5
     Range: 700
     Accuracy: 5
     Weight: 2.2
@@ -204,7 +204,7 @@ MonoBehaviour:
   - Name: Grenade Launcher
     Type: 7
     Active: 1
-    Damage: 50
+    Damage: 70
     FireRate: 2
     ReloadTime: 3
     Range: 100
@@ -267,7 +267,7 @@ MonoBehaviour:
     timeLimits: 8403000058020000b00400002c010000
   - ModeName: Elimination
     gameMode: 7
-    isEnabled: 1
+    isEnabled: 0
     supportBots: 1
     AutoTeamSelection: 1
     UnlistGameAfterStarted: 1
@@ -282,7 +282,7 @@ MonoBehaviour:
     timeLimits: 8403000058020000b00400002c010000
   - ModeName: Covert Point
     gameMode: 4
-    isEnabled: 1
+    isEnabled: 0
     supportBots: 0
     AutoTeamSelection: 1
     UnlistGameAfterStarted: 0
@@ -297,7 +297,7 @@ MonoBehaviour:
     timeLimits: 8403000058020000b00400002c010000
   - ModeName: Gun Race
     gameMode: 5
-    isEnabled: 1
+    isEnabled: 0
     supportBots: 0
     AutoTeamSelection: 0
     UnlistGameAfterStarted: 0
@@ -312,7 +312,7 @@ MonoBehaviour:
     timeLimits: 8403000058020000b00400002c010000
   - ModeName: Demolition
     gameMode: 8
-    isEnabled: 1
+    isEnabled: 0
     supportBots: 0
     AutoTeamSelection: 1
     UnlistGameAfterStarted: 1
@@ -327,7 +327,7 @@ MonoBehaviour:
     timeLimits: 7800000058020000b00400002c010000
   - ModeName: Battle Royal
     gameMode: 6
-    isEnabled: 1
+    isEnabled: 0
     supportBots: 0
     AutoTeamSelection: 1
     UnlistGameAfterStarted: 1
@@ -342,7 +342,7 @@ MonoBehaviour:
     timeLimits: 8403000058020000b00400002c010000
   - ModeName: Kill Confirmed
     gameMode: 9
-    isEnabled: 1
+    isEnabled: 0
     supportBots: 1
     AutoTeamSelection: 1
     UnlistGameAfterStarted: 0
