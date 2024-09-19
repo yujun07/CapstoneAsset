@@ -189,7 +189,7 @@ public class bl_SniperScope : bl_SniperScopeBase
 
         while (HoldBreathGuage < MaxHoldBreathGauge)
         {
-            HoldBreathGuage += Time.deltaTime * 0.5f;
+            HoldBreathGuage += Time.deltaTime * 0.625f;
             yield return null;
         }
 
