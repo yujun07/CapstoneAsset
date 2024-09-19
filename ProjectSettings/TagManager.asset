@@ -18,6 +18,7 @@ TagManager:
   - AI
   - Remote
   - IgnoreBullet
+  - Sniper
   layers:
   - Default
   - TransparentFX

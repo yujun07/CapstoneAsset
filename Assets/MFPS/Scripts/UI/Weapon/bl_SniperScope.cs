@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
-using MFPS.Runtime.UI;
-using Unity.VisualScripting;
+using System.Collections;
 
 public class bl_SniperScope : bl_SniperScopeBase
 {
@@ -15,6 +14,7 @@ public class bl_SniperScope : bl_SniperScopeBase
     [Space]
     [Tooltip("Objects to disable when the scope shown, usually the weapon and arms meshes.")]
     public List<GameObject> OnScopeDisable = new List<GameObject>();
+    public float MaxHoldBreathGauge = 5f;
     #endregion
 
     #region Private members
@@ -26,7 +26,7 @@ public class bl_SniperScope : bl_SniperScopeBase
     private bool aiming = false;
     private bool isHoldBreath = false;
     private bool canHoldBreath = true;
-    private float HoldBreathGuage = 5;
+    private float HoldBreathGuage;
     RaycastHit m_ray;
     #endregion
 
@@ -37,6 +37,7 @@ public class bl_SniperScope : bl_SniperScopeBase
     {
         base.Awake();
         m_gun = GetComponent<bl_Gun>();
+        HoldBreathGuage = MaxHoldBreathGauge;
     }
 
     /// <summary>
@@ -61,33 +62,24 @@ public class bl_SniperScope : bl_SniperScopeBase
 
     private void Update()
     {
-        if (m_gun.isAiming && !m_gun.isReloading)
+        if (isHoldBreath)
         {
-            if (Input.GetKeyUp(KeyCode.LeftShift))
+            // Update에서 코루틴을 체크
+            if (Input.GetKeyUp(KeyCode.LeftShift) || !m_gun.isAiming || m_gun.isReloading)
             {
-                StopHoldBreath();
-            }
-            else if (HoldBreathGuage <= 0)
-            {
-                canHoldBreath = false;
-            }
-            else if (Input.GetKeyDown(KeyCode.LeftShift))
-            {
-                HoldBreath();
+                isHoldBreath = false;
+                m_gun.PlayerReferences.cameraMotion.SetActiveBreathing(true, breathingAmplitude);
             }
         }
-
-        if (HoldBreathGuage < 100 && !isHoldBreath)
+        else if (canHoldBreath)
         {
-            HoldBreathGuage += Time.deltaTime;
-        }
-        else if (isHoldBreath)
-        {
-            if (HoldBreathGuage <= 0)
+            if (Input.GetKeyDown(KeyCode.LeftShift))
             {
-                canHoldBreath = false;
+                isHoldBreath = true;
+                m_gun.PlayerReferences.cameraMotion.SetActiveBreathing(false);
+                StopCoroutine("DecreaseHoldBreathGauge");
+                StartCoroutine("DecreaseHoldBreathGauge");
             }
-            else HoldBreathGuage -= Time.deltaTime;
         }
     }
 
@@ -179,14 +171,34 @@ public class bl_SniperScope : bl_SniperScopeBase
         }
     }
 
-    private void HoldBreath()
+    private IEnumerator DecreaseHoldBreathGauge()
     {
-        isHoldBreath = true;
+        while (HoldBreathGuage > 0 && isHoldBreath)
+        {
+            HoldBreathGuage -= Time.deltaTime;
+            yield return null;
+        }
+
+        if (HoldBreathGuage <= 0)
+        {
+            HoldBreathGuage = 0f;
+            isHoldBreath = false;
+            canHoldBreath = false;
+            m_gun.PlayerReferences.cameraMotion.SetActiveBreathing(true, breathingAmplitude);
+        }
+
+        while (HoldBreathGuage < MaxHoldBreathGauge)
+        {
+            HoldBreathGuage += Time.deltaTime * 0.5f;
+            yield return null;
+        }
+
+        HoldBreathGuage = MaxHoldBreathGauge;
+        canHoldBreath = true;
     }
 
-    private void StopHoldBreath()
+    public float GaugeValue()
     {
-        isHoldBreath = false;
-        m_gun.PlayerReferences.cameraMotion.SetActiveBreathing(false);
+        return HoldBreathGuage;
     }
 }
