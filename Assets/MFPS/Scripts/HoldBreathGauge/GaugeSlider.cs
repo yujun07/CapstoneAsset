@@ -6,11 +6,11 @@ public class GaugeSlider : MonoBehaviour
     public Slider Gauge;
     private bl_SniperScope _sniperScope;
 
-    private void Awake()
+    private void OnEnable()
     {
-        GameObject sniper = GameObject.FindWithTag("Sniper");
-        if (sniper != null)
+        if (_sniperScope == null)
         {
+            GameObject sniper = GameObject.FindWithTag("Sniper");
             _sniperScope = sniper.GetComponent<bl_SniperScope>();
         }
     }
