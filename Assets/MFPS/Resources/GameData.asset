@@ -81,11 +81,6 @@ MonoBehaviour:
     RealSceneName: ExampleLevel
     Preview: {fileID: 21300000, guid: 6566c02619a33c04b83af91ef6aa5026, type: 3}
     NoAllowedGameModes: 
-  - ShowName: DarkCity
-    m_Scene: {fileID: 102900000, guid: 9dd46b493c1396a42b3cf2aa11fde485, type: 3}
-    RealSceneName: 
-    Preview: {fileID: 0}
-    NoAllowedGameModes: 
   AllWeapons:
   - Name: Rifle
     Type: 1
