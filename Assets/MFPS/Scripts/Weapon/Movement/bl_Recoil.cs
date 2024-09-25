@@ -7,7 +7,7 @@
 /// </summary>
 public class bl_Recoil : bl_RecoilBase
 {
-    [Range(1, 25)] public float MaxRecoil = 5;
+    [Range(1, 35)] public float MaxRecoil = 5;
     public bool AutomaticallyComeBack = true;
 
     #region Private members
@@ -16,7 +16,7 @@ public class bl_Recoil : bl_RecoilBase
     private float Recoil = 0;
     private float RecoilSpeed = 2;
     private bool wasFiring = false;
-    private float lerpRecoil = 0;  
+    private float lerpRecoil = 0;
     #endregion
 
     /// <summary>
@@ -58,6 +58,9 @@ public class bl_Recoil : bl_RecoilBase
         {
             if (GunManager.CurrentGun.isFiring)
             {
+                Recoil += GunManager.CurrentGun.RecoilAmount;
+                Recoil = Mathf.Clamp(Recoil, 0, MaxRecoil);
+
                 if (AutomaticallyComeBack)
                 {
                     Quaternion q = Quaternion.Euler(new Vector3(-Recoil, 0, 0));
@@ -80,10 +83,16 @@ public class bl_Recoil : bl_RecoilBase
                 {
                     if (wasFiring)
                     {
-                        Recoil = 0;
-                        lerpRecoil = 0;
-                        fpController.GetMouseLook().CombineVerticalOffset();
-                        wasFiring = false;
+                        //Recoil = 0;
+                        //lerpRecoil = 0;
+                        //fpController.GetMouseLook().CombineVerticalOffset();
+                        //wasFiring = false;
+                        lerpRecoil = Mathf.Lerp(lerpRecoil,0,Time.deltaTime * RecoilSpeed);
+                        fpController.GetMouseLook().SetVerticalOffset(-lerpRecoil);
+                        if(lerpRecoil < 0.01f)
+                        {
+                            wasFiring = false;
+                        }
                     }
                 }
             }
@@ -100,10 +109,11 @@ public class bl_Recoil : bl_RecoilBase
     void BackToOrigin()
     {
         if (m_Transform == null) return;
-
+        
         Quaternion q = Quaternion.Euler(RecoilRot);
         m_Transform.localRotation = Quaternion.Slerp(m_Transform.localRotation, q, Time.deltaTime * RecoilSpeed);
-        Recoil = m_Transform.localEulerAngles.x;
+        Recoil = Mathf.Lerp(Recoil,0, Time.deltaTime * RecoilSpeed );
+        //Recoil = m_Transform.localEulerAngles.x;
     }
 
     /// <summary>
@@ -114,9 +124,22 @@ public class bl_Recoil : bl_RecoilBase
 #if MFPSM
         if (bl_UtilityHelper.isMobile && bl_MobileControlSettings.Instance.disableRecoil) return;
 #endif
+        if (GunManager.CurrentGun.isFiring)
+        {
+            if(!wasFiring)
+            {
+                Recoil += data.Amount;
+                Recoil = Mathf.Clamp(Recoil, 0, MaxRecoil);
+            }
+        }
+        else
+        {
+            if (AutomaticallyComeBack)
+            {
+                Recoil = Mathf.Lerp(Recoil,0,Time.deltaTime * RecoilSpeed);
+            }
+        }
         
-        Recoil += data.Amount;
-        Recoil = Mathf.Clamp(Recoil, 0, MaxRecoil);
         RecoilSpeed = data.Speed;
     }
 
