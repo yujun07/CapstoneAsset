@@ -350,6 +350,26 @@ public class bl_LobbyUI : MonoBehaviour
         bl_Lobby.Instance.SetPlayerName(field.text);
     }
 
+    public void LogInName(string name)
+    {
+        if (string.IsNullOrEmpty(name))
+            return;
+
+        int check = bl_GameData.Instance.CheckPlayerName(name);
+        if (check == 1)
+        {
+            bl_Lobby.Instance.CachePlayerName = name;
+            SetEnableWindow("user password", true);
+            return;
+        }
+        else if (check == 2)
+        {
+            name = string.Empty;
+            return;
+        }
+        bl_Lobby.Instance.SetPlayerName(name);
+    }
+
     /// <summary>
     /// 
     /// </summary>
