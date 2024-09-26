@@ -5,27 +5,20 @@ using UnityEngine;
 
 public class LogIn : MonoBehaviour
 {
-    private string server = "172.28.1.211";
-    private string database = "UnityLoginDB";
-    private string user = "root";
-    private string password = "0000";   
+    [SerializeField] private GameObject Sel;
 
-    public TMP_InputField ID;
-    public TMP_InputField PW;
+    [SerializeField] private TMP_InputField ID;
+    [SerializeField] private TMP_InputField PW;
 
-    public TMP_Text ErrorMassage;
+    [SerializeField] private TMP_Text ErrorMassage;
 
-    public GameObject EnterName;
+    [SerializeField] private GameObject EnterName;
 
     private MySqlConnection conn;
 
     void Start()
     {
-        string connStr = $"Server={server};Database={database};User={user};Password={password};";
-        conn = new MySqlConnection(connStr);
-
-        if (conn != null) conn.Open();
-        else Debug.Log("SQL Error");
+        conn = Sel.GetComponent<LogInSelect>()._conn;
     }
 
     public void OnClickOk()

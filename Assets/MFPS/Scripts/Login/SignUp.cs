@@ -6,21 +6,18 @@ using System.Text.RegularExpressions;
 
 public class SignUp : MonoBehaviour
 {
-    private string server = "172.28.1.211";
-    private string database = "UnityLoginDB";
-    private string user = "root";
-    private string password = "0000";
+    [SerializeField] private GameObject Sel;
 
-    public TMP_Text ID;
-    public TMP_Text PW;
-    public TMP_Text NickName;
+    [SerializeField] private TMP_Text ID;
+    [SerializeField] private TMP_Text PW;
+    [SerializeField] private TMP_Text NickName;
     private string CleanID;
     private string CleanPW;
     private string CleanNick;
 
-    public TMP_Text ErrorText;
+    [SerializeField] private TMP_Text ErrorText;
 
-    public GameObject EnterOK;
+    [SerializeField] private GameObject EnterOK;
 
     private MySqlConnection conn;
 
@@ -29,11 +26,7 @@ public class SignUp : MonoBehaviour
 
     private void Start()
     {
-        string connStr = $"Server={server};Database={database};User={user};Password={password};";
-        conn = new MySqlConnection(connStr);
-
-        if (conn != null) conn.Open();
-        else Debug.Log("SQL Error");
+        conn = Sel.GetComponent<LogInSelect>()._conn;
     }
 
     public void OnClickOk()
