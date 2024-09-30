@@ -31,9 +31,6 @@ public class SignUp : MonoBehaviour
 
     public void OnClickOk()
     {
-        Debug.Log(ID.text);
-        Debug.Log(PW.text);
-
         CleanInput();
 
         if (ID.text.Length == 0 || PW.text.Length == 0)
@@ -46,7 +43,7 @@ public class SignUp : MonoBehaviour
         else if (ID.text.Length < 4 || ID.text.Length > 20)
         {
             ErrorText.gameObject.SetActive(true);
-            ErrorText.text = "Please set your ID to be between 4 and 20 characters.";   
+            ErrorText.text = "Please set your ID to be between 4 and 20 characters.";
             StopAllCoroutines();
             StartCoroutine(ErrorField());
         }
@@ -103,7 +100,6 @@ public class SignUp : MonoBehaviour
         // 정규식으로 검사
         if (Regex.IsMatch(CleanID, IDpattern))
         {
-            Debug.Log("Valid input");
             return true;
         }
         else
@@ -118,7 +114,6 @@ public class SignUp : MonoBehaviour
         // 정규식으로 검사
         if (Regex.IsMatch(CleanPW, PWpattern))
         {
-            Debug.Log("Valid input");
             return true;
         }
         else
@@ -164,7 +159,22 @@ public class SignUp : MonoBehaviour
         }
         catch (MySqlException ex)
         {
-            Debug.Log("Registration failed: " + ex.Message);
+            Debug.Log(ex.Number);
+
+            if (ex.Number == 1644)
+            {
+                ErrorText.gameObject.SetActive(true);
+                ErrorText.text = "That ID already exists. Please choose a different one.";
+                StopAllCoroutines();
+                StartCoroutine(ErrorField());
+            }
+            else if (ex.Number == 1062)
+            {
+                ErrorText.gameObject.SetActive(true);
+                ErrorText.text = "That NickName already exists. Please choose a different one.";
+                StopAllCoroutines();
+                StartCoroutine(ErrorField());
+            }
         }
     }
 
