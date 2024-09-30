@@ -14,7 +14,6 @@ public class bl_Recoil : bl_RecoilBase
     private Transform m_Transform;
     private Vector3 RecoilRot;
     private float Recoil = 0;
-    private float backRecoilSpeed = 2;
     private float RecoilSpeed = 2;
     private bool wasFiring = false;
     private float lerpRecoil = 0;
@@ -112,7 +111,7 @@ public class bl_Recoil : bl_RecoilBase
         if (m_Transform == null) return;
         
         Quaternion q = Quaternion.Euler(RecoilRot);
-        m_Transform.localRotation = Quaternion.Slerp(m_Transform.localRotation, q, Time.deltaTime * backRecoilSpeed);
+        m_Transform.localRotation = Quaternion.Slerp(m_Transform.localRotation, q, Time.deltaTime * RecoilSpeed);
         Recoil = Mathf.Lerp(Recoil,0, Time.deltaTime * RecoilSpeed );
         //Recoil = m_Transform.localEulerAngles.x;
     }
