@@ -25,15 +25,11 @@ public class SignUp : MonoBehaviour
     private string PWpattern = @"^[a-zA-Z0-9!""#$%&'()*+,\-./:<>?@[\\\]^_`{|}~]*$";
     private string NICKpattern = "^[a-zA-Z0-9\\s]*$";
 
-    [SerializeField] private GameObject X;
-
-    private void Start()
-    {
-        conn = Sel.GetComponent<LogInSelect>()._conn;
-    }
-
     public void OnClickOk()
     {
+        Sel.GetComponent<LogInSelect>().SQLConn();
+        conn = Sel.GetComponent<LogInSelect>()._conn;
+
         CleanInput();
 
         if (CleanID.Length == 0 || CleanPW.Length == 0)
@@ -243,7 +239,7 @@ public class SignUp : MonoBehaviour
 
     public void OnClickX()
     {
-        X.SetActive(true);
+        Sel.SetActive(true);
         transform.GetChild(1).gameObject.SetActive(false);
     }
 }

@@ -39,6 +39,8 @@ public class bl_LobbyUI : MonoBehaviour
     public bl_ConfirmationWindow connectionPopupMessage;
     public bl_CanvasGroupFader blackScreenFader;
 
+    [SerializeField] private GameObject LoginPanel;
+
     #region Private members
     private string currentWindow = "";
     private int requestedRegionID = -1;
@@ -175,6 +177,8 @@ public class bl_LobbyUI : MonoBehaviour
 
     public void SignOut()
     {
+        LoginPanel.gameObject.SetActive(true);
+        LoginPanel.GetComponent<LogInSelect>().Setting();
         bl_Lobby.Instance.SignOut();
     }
 

@@ -16,15 +16,35 @@ public class LogIn : MonoBehaviour
 
     private MySqlConnection conn;
 
-    [SerializeField] private GameObject X;
+    [SerializeField] private GameObject Remem;
 
     void Start()
     {
+        Sel.GetComponent<LogInSelect>().SQLConn();
         conn = Sel.GetComponent<LogInSelect>()._conn;
+
+        string ReID = null;
+        string RePW = null;
+
+        if (PlayerPrefs.GetString("ID", ReID) != "" && PlayerPrefs.GetString("PW", RePW) != "")
+        {
+            ID.text = PlayerPrefs.GetString("ID");
+            PW.text = PlayerPrefs.GetString("PW");
+            Sel.SetActive(false);
+
+            Login();
+        }
+        else
+        {
+            Sel.SetActive(true);
+        }
     }
 
     public void OnClickOk()
     {
+        Sel.GetComponent<LogInSelect>().SQLConn();
+        conn = Sel.GetComponent<LogInSelect>()._conn;
+
         Login();
     }
 
@@ -58,6 +78,13 @@ public class LogIn : MonoBehaviour
                 conn.Close();
             }
 
+            if (Remem.GetComponent<Remember>().Check())
+            {
+                PlayerPrefs.SetString("ID", ID.text);
+                PlayerPrefs.SetString("PW", PW.text);
+                PlayerPrefs.Save();
+            }
+
             EnterName.GetComponent<bl_LobbyUI>().LogInName(nickname);
         }
     }
@@ -76,7 +103,7 @@ public class LogIn : MonoBehaviour
 
     public void OnClickX()
     {
-        X.SetActive(true);
+        Sel.SetActive(true);
         transform.GetChild(2).gameObject.SetActive(false);
     }
 }
