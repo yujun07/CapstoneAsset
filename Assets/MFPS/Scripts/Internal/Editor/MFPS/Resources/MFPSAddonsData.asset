@@ -44,7 +44,7 @@ MonoBehaviour:
     KeyName: CUSTOMIZER
     LastVersion: 2.0.3
     Info: {fileID: 11400000, guid: c909a4df55136e54eb79cba262d79cf2, type: 2}
-    CurrentVersion: --
+    CurrentVersion: 2.0.3
     MinVersion: 1.5.3
     FolderName: Customizer
     DoNotRequireEnabled: 0
@@ -188,7 +188,7 @@ MonoBehaviour:
     KeyName: UMM
     LastVersion: 2.4.2
     Info: {fileID: 11400000, guid: 5a4a3d28ac74d4d4bbc0829dd2b5eb37, type: 2}
-    CurrentVersion: --
+    CurrentVersion: 2.4.2
     MinVersion: 2.3
     FolderName: UGUIMiniMap
     DoNotRequireEnabled: 0
