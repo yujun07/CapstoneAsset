@@ -177,6 +177,9 @@ public class bl_LobbyUI : MonoBehaviour
 
     public void SignOut()
     {
+        PlayerPrefs.SetString("ID", "");
+        PlayerPrefs.SetString("PW", "");
+
         LoginPanel.gameObject.SetActive(true);
         LoginPanel.GetComponent<LogInSelect>().Setting();
         bl_Lobby.Instance.SignOut();
