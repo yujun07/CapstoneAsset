@@ -228,6 +228,7 @@ public class SignUp : MonoBehaviour
                     conn.Close();
                 }
 
+                Sel.GetComponent<LogInSelect>().isLogin = true;
                 EnterOK.GetComponent<bl_LobbyUI>().LogInName(nickname);
             }
         }
