@@ -143,7 +143,7 @@ MonoBehaviour:
     KeyName: 
     LastVersion: 1.3.1
     Info: {fileID: 11400000, guid: aec66f7f294caee4d9b378b402beca48, type: 2}
-    CurrentVersion: --
+    CurrentVersion: 1.3.1
     MinVersion: 1.0
     FolderName: ScopePro
     DoNotRequireEnabled: 0
@@ -461,6 +461,42 @@ MonoBehaviour:
     CurrentVersion: --
     MinVersion: 1.9.3
     FolderName: NamePlatePro
+    DoNotRequireEnabled: 0
+    ChangeLog: []
+  - NiceName: Weapon Pack #3
+    KeyName: 
+    LastVersion: 
+    Info: {fileID: 0}
+    CurrentVersion: --
+    MinVersion: 1.0
+    FolderName: Weapon Packs/WeaponPack[3]
+    DoNotRequireEnabled: 0
+    ChangeLog: []
+  - NiceName: Case Opening
+    KeyName: case-opening
+    LastVersion: 
+    Info: {fileID: 0}
+    CurrentVersion: --
+    MinVersion: 1.9.3
+    FolderName: Case Opening
+    DoNotRequireEnabled: 0
+    ChangeLog: []
+  - NiceName: VIP Pass
+    KeyName: vip-pass
+    LastVersion: 
+    Info: {fileID: 0}
+    CurrentVersion: --
+    MinVersion: 1.10.0
+    FolderName: VIP Pass
+    DoNotRequireEnabled: 0
+    ChangeLog: []
+  - NiceName: Night Vision
+    KeyName: night-vision
+    LastVersion: 
+    Info: {fileID: 0}
+    CurrentVersion: --
+    MinVersion: 1.9.3
+    FolderName: NightVision
     DoNotRequireEnabled: 0
     ChangeLog: []
   AutoUpdate: 0
