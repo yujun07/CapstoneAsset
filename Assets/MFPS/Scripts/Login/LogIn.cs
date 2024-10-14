@@ -16,6 +16,8 @@ public class LogIn : MonoBehaviour
 
     private MySqlConnection conn;
 
+    [SerializeField] private GameObject X;
+
     void Start()
     {
         conn = Sel.GetComponent<LogInSelect>()._conn;
@@ -70,5 +72,11 @@ public class LogIn : MonoBehaviour
         }
 
         ErrorMassage.gameObject.SetActive(false);
+    }
+
+    public void OnClickX()
+    {
+        X.SetActive(true);
+        transform.GetChild(2).gameObject.SetActive(false);
     }
 }

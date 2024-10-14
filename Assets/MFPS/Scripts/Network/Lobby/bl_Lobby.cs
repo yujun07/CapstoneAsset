@@ -273,35 +273,34 @@ public class bl_Lobby : bl_PhotonHelper, IConnectionCallbacks, ILobbyCallbacks, 
     void GeneratePlayerName()
     {
         connectionState = LobbyConnectionState.WaitingForUserName;
-        if (!rememberMe)
-        {
-            string storedNick = PropertiesKeys.GetUniqueKey("playername");
-            if (!PlayerPrefs.HasKey(storedNick) || !bl_GameData.Instance.RememberPlayerName)
-            {
+        //if (!rememberMe)
+        //{
+            //string storedNick = PropertiesKeys.GetUniqueKey("playername");
+            //if (!PlayerPrefs.HasKey(storedNick) || !bl_GameData.Instance.RememberPlayerName)
+            //{
                 CachePlayerName = string.Format(bl_GameData.Instance.guestNameFormat, Random.Range(1, 9999));
-            }
-            else if (bl_GameData.Instance.RememberPlayerName)
-            {
-                CachePlayerName = PlayerPrefs.GetString(storedNick, string.Format(bl_GameData.Instance.guestNameFormat, Random.Range(1, 9999)));
-            }
+            //}
+            //else if (bl_GameData.Instance.RememberPlayerName)
+            //{
+            //    CachePlayerName = PlayerPrefs.GetString(storedNick, string.Format(bl_GameData.Instance.guestNameFormat, Random.Range(1, 9999)));
+            //}
             bl_LobbyUI.Instance.PlayerNameField.text = CachePlayerName;
             SetNickName(CachePlayerName);
             bl_LobbyUI.Instance.ChangeWindow("player name");
             bl_LobbyLoadingScreenBase.Instance.HideIn(0.2f, true);
-        }
-        else
-        {
-            // Assign the saved nick name automatically
-            CachePlayerName = PlayerPrefs.GetString(PropertiesKeys.GetUniqueKey("remembernick"));
-            if (string.IsNullOrEmpty(CachePlayerName))
-            {
-                rememberMe = false;
-                GeneratePlayerName();
-                return;
-            }
-            SetNickName(CachePlayerName);
-            GoToMainMenu();
-        }
+        //}
+        //else
+        //{
+        //    CachePlayerName = PlayerPrefs.GetString(PropertiesKeys.GetUniqueKey("remembernick"));
+        //    if (string.IsNullOrEmpty(CachePlayerName))
+        //    {
+        //        rememberMe = false;
+        //        GeneratePlayerName();
+        //        return;
+        //    }
+        //    SetNickName(CachePlayerName);
+        //    GoToMainMenu();
+        //}
     }
 
     /// <summary>
