@@ -23,6 +23,7 @@ public class SignUp : MonoBehaviour
 
     private string IDpattern = "^[a-zA-Z0-9]*$";
     private string PWpattern = @"^[a-zA-Z0-9!""#$%&'()*+,\-./:<>?@[\\\]^_`{|}~]*$";
+    private string NICKpattern = "^[a-zA-Z0-9\\s]*$";
 
     [SerializeField] private GameObject X;
 
@@ -84,6 +85,13 @@ public class SignUp : MonoBehaviour
             StopAllCoroutines();
             StartCoroutine(ErrorField());
         }
+        else if (!NICKTest())
+        {
+            ErrorText.gameObject.SetActive(true);
+            ErrorText.text = "NickName must include letters, numbers, and spaces.";
+            StopAllCoroutines();
+            StartCoroutine(ErrorField());
+        }
         else
         {
             Register();
@@ -97,7 +105,7 @@ public class SignUp : MonoBehaviour
         CleanNick = Regex.Replace(NickName.text, @"[\u200B-\u200D\uFEFF]", "");
     }
 
-    public bool IDTest()
+    private bool IDTest()
     {
         // 정규식으로 검사
         if (Regex.IsMatch(CleanID, IDpattern))
@@ -111,10 +119,23 @@ public class SignUp : MonoBehaviour
         }
     }
 
-    public bool PWTest()
+    private bool PWTest()
     {
         // 정규식으로 검사
         if (Regex.IsMatch(CleanPW, PWpattern))
+        {
+            return true;
+        }
+        else
+        {
+            Debug.Log("Invalid input");
+            return false;
+        }
+    }
+
+    private bool NICKTest()
+    {
+        if (Regex.IsMatch(CleanNick, NICKpattern))
         {
             return true;
         }
@@ -206,9 +227,12 @@ public class SignUp : MonoBehaviour
             }
             else
             {
-                EnterOK.GetComponent<bl_LobbyUI>().LogInName(nickname);
+                if (conn != null)
+                {
+                    conn.Close();
+                }
 
-                Debug.Log("Login successful! Nickname: " + nickname);
+                EnterOK.GetComponent<bl_LobbyUI>().LogInName(nickname);
             }
         }
         catch (MySqlException ex)
