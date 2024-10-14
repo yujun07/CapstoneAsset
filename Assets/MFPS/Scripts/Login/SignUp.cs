@@ -227,9 +227,12 @@ public class SignUp : MonoBehaviour
             }
             else
             {
-                EnterOK.GetComponent<bl_LobbyUI>().LogInName(nickname);
+                if (conn != null)
+                {
+                    conn.Close();
+                }
 
-                Debug.Log("Login successful! Nickname: " + nickname);
+                EnterOK.GetComponent<bl_LobbyUI>().LogInName(nickname);
             }
         }
         catch (MySqlException ex)
