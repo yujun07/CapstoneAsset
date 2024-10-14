@@ -180,8 +180,8 @@ public class bl_LobbyUI : MonoBehaviour
         PlayerPrefs.SetString("ID", "");
         PlayerPrefs.SetString("PW", "");
 
-        LoginPanel.gameObject.SetActive(true);
         LoginPanel.GetComponent<LogInSelect>().Setting();
+        LoginPanel.gameObject.SetActive(true);
         bl_Lobby.Instance.SignOut();
     }
 
@@ -374,6 +374,7 @@ public class bl_LobbyUI : MonoBehaviour
             name = string.Empty;
             return;
         }
+
         bl_Lobby.Instance.SetPlayerName(name);
     }
 

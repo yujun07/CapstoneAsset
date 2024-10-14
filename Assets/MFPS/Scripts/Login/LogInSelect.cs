@@ -19,8 +19,20 @@ public class LogInSelect : MonoBehaviour
     [SerializeField] private GameObject ErrorPanel;
     [SerializeField] private TMP_Text ErrorText;
 
+    public bool isLogin;
+
+    private void OnEnable()
+    {
+        if (isLogin)
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
     public void Setting()
     {
+        isLogin = false;
+
         LogIn.SetActive(false);
         SignUp.SetActive(false);
     }

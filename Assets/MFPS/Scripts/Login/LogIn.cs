@@ -36,6 +36,7 @@ public class LogIn : MonoBehaviour
         }
         else
         {
+            Sel.GetComponent<LogInSelect>().isLogin = false;
             Sel.SetActive(true);
         }
     }
@@ -85,6 +86,7 @@ public class LogIn : MonoBehaviour
                 PlayerPrefs.Save();
             }
 
+            Sel.GetComponent<LogInSelect>().isLogin = true;
             EnterName.GetComponent<bl_LobbyUI>().LogInName(nickname);
         }
     }
