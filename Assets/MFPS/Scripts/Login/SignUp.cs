@@ -24,6 +24,8 @@ public class SignUp : MonoBehaviour
     private string IDpattern = "^[a-zA-Z0-9]*$";
     private string PWpattern = @"^[a-zA-Z0-9!""#$%&'()*+,\-./:<>?@[\\\]^_`{|}~]*$";
 
+    [SerializeField] private GameObject X;
+
     private void Start()
     {
         conn = Sel.GetComponent<LogInSelect>()._conn;
@@ -33,35 +35,35 @@ public class SignUp : MonoBehaviour
     {
         CleanInput();
 
-        if (ID.text.Length == 0 || PW.text.Length == 0)
+        if (CleanID.Length == 0 || CleanPW.Length == 0)
         {
             ErrorText.gameObject.SetActive(true);
             ErrorText.text = "Please enter both ID and password";
             StopAllCoroutines();
             StartCoroutine(ErrorField());
         }
-        else if (ID.text.Length < 4 || ID.text.Length > 20)
+        else if (CleanID.Length < 4 || CleanID.Length > 20)
         {
             ErrorText.gameObject.SetActive(true);
             ErrorText.text = "Please set your ID to be between 4 and 20 characters.";
             StopAllCoroutines();
             StartCoroutine(ErrorField());
         }
-        else if (PW.text.Length < 8 || PW.text.Length > 32)
+        else if (CleanPW.Length < 8 || CleanPW.Length > 32)
         {
             ErrorText.gameObject.SetActive(true);
             ErrorText.text = "Please set your password to be between 8 and 32 characters.";
             StopAllCoroutines();
             StartCoroutine(ErrorField());
         }
-        else if (NickName.text.Length < 2)
+        else if (CleanNick.Length < 2)
         {
             ErrorText.gameObject.SetActive(true);
             ErrorText.text = "Please set your nickname to at least 2 characters.";
             StopAllCoroutines();
             StartCoroutine(ErrorField());
         }
-        else if (NickName.text.Length > 16)
+        else if (CleanNick.Length > 16)
         {
             ErrorText.gameObject.SetActive(true);
             ErrorText.text = "Please set your nickname to no more than 16 characters.";
@@ -213,5 +215,11 @@ public class SignUp : MonoBehaviour
         {
             Debug.LogError("Login failed: " + ex.Message);
         }
+    }
+
+    public void OnClickX()
+    {
+        X.SetActive(true);
+        transform.GetChild(1).gameObject.SetActive(false);
     }
 }
