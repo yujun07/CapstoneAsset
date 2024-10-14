@@ -10,7 +10,6 @@ public class LogInSelect : MonoBehaviour
     private string user = "root";
     private string password = "0000";
 
-
     [SerializeField] private GameObject LogIn;
     [SerializeField] private GameObject SignUp;
     [SerializeField] private GameObject guest;
@@ -20,7 +19,13 @@ public class LogInSelect : MonoBehaviour
     [SerializeField] private GameObject ErrorPanel;
     [SerializeField] private TMP_Text ErrorText;
 
-    void Awake()
+    public void Setting()
+    {
+        LogIn.SetActive(false);
+        SignUp.SetActive(false);
+    }
+
+    public void SQLConn()
     {
         string connStr = $"Server={server};Database={database};User={user};Password={password};";
         _conn = new MySqlConnection(connStr);
@@ -32,7 +37,7 @@ public class LogInSelect : MonoBehaviour
         catch (MySqlException ex)
         {
             ErrorPanel.SetActive(true);
-            ErrorText.text = ex.Message;    
+            ErrorText.text = ex.Message;
         }
         catch (Exception ex)
         {
@@ -53,9 +58,9 @@ public class LogInSelect : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void OnClickGuest()
-    {
-        guest.SetActive(true);
-        gameObject.SetActive(false);
-    }
+    //public void OnClickGuest()
+    //{
+    //    guest.SetActive(true);
+    //    gameObject.SetActive(false);
+    //}
 }
