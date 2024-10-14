@@ -53,10 +53,10 @@ public class LogIn : MonoBehaviour
         }
         else
         {
-            if (conn != null)
-            {
-                conn.Close();
-            }
+            //if (conn != null)
+            //{
+            //    conn.Close();
+            //}
 
             EnterName.GetComponent<bl_LobbyUI>().LogInName(nickname);
         }
