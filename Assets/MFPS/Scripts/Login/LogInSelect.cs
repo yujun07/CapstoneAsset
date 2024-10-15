@@ -19,19 +19,18 @@ public class LogInSelect : MonoBehaviour
     [SerializeField] private GameObject ErrorPanel;
     [SerializeField] private TMP_Text ErrorText;
 
-    public bool isLogin;
-
     private void OnEnable()
     {
-        if (isLogin)
+        if (LoginManager.Login_Inst != null && LoginManager.Login_Inst.isLoggedIn)
         {
             gameObject.SetActive(false);
         }
+        else Debug.Log("LoginManager is null");
     }
 
     public void Setting()
     {
-        isLogin = false;
+        LoginManager.Login_Inst.isLoggedIn = false;
 
         LogIn.SetActive(false);
         SignUp.SetActive(false);
