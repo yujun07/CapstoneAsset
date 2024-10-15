@@ -56,6 +56,7 @@ public class bl_Recoil : bl_RecoilBase
 
         if (GunManager.CurrentGun != null)
         {
+            
             if (GunManager.CurrentGun.isFiring)
             {
                 Recoil += GunManager.CurrentGun.RecoilAmount;
