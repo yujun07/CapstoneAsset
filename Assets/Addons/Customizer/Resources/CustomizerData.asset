@@ -46,6 +46,12 @@ MonoBehaviour:
       Camo: {fileID: 2100000, guid: 50246aca79a845b40a8622da984ad45a, type: 2}
       OverridePreview: {fileID: 0}
       ofWeaponID: 0
+    - Name: Dragon
+      GlobalID: 5
+      ID: 5
+      Camo: {fileID: 2100000, guid: 50246aca79a845b40a8622da984ad45a, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 0
     Attachments:
       Suppressers:
       - Name: No Suppressor
@@ -93,9 +99,33 @@ MonoBehaviour:
       Camo: {fileID: 2100000, guid: e463b86907a3bd54485db0a6b2eabbad, type: 2}
       OverridePreview: {fileID: 0}
       ofWeaponID: 1
+    - Name: Urban
+      GlobalID: 1
+      ID: 1
+      Camo: {fileID: 2100000, guid: f54e44921cc3eaf4c8c4a78f0734050d, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 1
+    - Name: Artic
+      GlobalID: 2
+      ID: 2
+      Camo: {fileID: 2100000, guid: f54e44921cc3eaf4c8c4a78f0734050d, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 1
+    - Name: Toxi
+      GlobalID: 3
+      ID: 3
+      Camo: {fileID: 2100000, guid: f54e44921cc3eaf4c8c4a78f0734050d, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 1
+    - Name: Patriot
+      GlobalID: 4
+      ID: 4
+      Camo: {fileID: 2100000, guid: f54e44921cc3eaf4c8c4a78f0734050d, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 1
     - Name: Dragon
       GlobalID: 5
-      ID: 1
+      ID: 5
       Camo: {fileID: 2100000, guid: f54e44921cc3eaf4c8c4a78f0734050d, type: 2}
       OverridePreview: {fileID: 0}
       ofWeaponID: 1
@@ -134,6 +164,30 @@ MonoBehaviour:
     - Name: Urban
       GlobalID: 1
       ID: 1
+      Camo: {fileID: 2100000, guid: f1ffebcb1cf483948b3f85244323add0, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 2
+    - Name: Artic
+      GlobalID: 2
+      ID: 2
+      Camo: {fileID: 2100000, guid: f1ffebcb1cf483948b3f85244323add0, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 2
+    - Name: Toxi
+      GlobalID: 3
+      ID: 3
+      Camo: {fileID: 2100000, guid: f1ffebcb1cf483948b3f85244323add0, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 2
+    - Name: Patriot
+      GlobalID: 4
+      ID: 4
+      Camo: {fileID: 2100000, guid: f1ffebcb1cf483948b3f85244323add0, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 2
+    - Name: Dragon
+      GlobalID: 5
+      ID: 5
       Camo: {fileID: 2100000, guid: f1ffebcb1cf483948b3f85244323add0, type: 2}
       OverridePreview: {fileID: 0}
       ofWeaponID: 2
@@ -181,6 +235,30 @@ MonoBehaviour:
       Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
       OverridePreview: {fileID: 0}
       ofWeaponID: 3
+    - Name: Artic
+      GlobalID: 2
+      ID: 2
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 3
+    - Name: Toxi
+      GlobalID: 3
+      ID: 3
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 3
+    - Name: Dragon
+      GlobalID: 5
+      ID: 4
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 3
+    - Name: Patriot
+      GlobalID: 4
+      ID: 5
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 3
     Attachments:
       Suppressers:
       - Name: No Suppressor
@@ -209,6 +287,667 @@ MonoBehaviour:
         Description: 
       - Name: Extended
         ID: 1
+        Description: 
+  - WeaponName: Double Barrel
+    GunID: 15
+    Camos:
+    - Name: Default
+      GlobalID: 0
+      ID: 0
+      Camo: {fileID: 2100000, guid: d06140c5eb850234cbd0989044e564e4, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 4
+    - Name: Urban
+      GlobalID: 1
+      ID: 1
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 4
+    - Name: Toxi
+      GlobalID: 3
+      ID: 2
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 4
+    - Name: Artic
+      GlobalID: 2
+      ID: 3
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 4
+    - Name: Dragon
+      GlobalID: 5
+      ID: 4
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 4
+    - Name: Patriot
+      GlobalID: 4
+      ID: 5
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 4
+    Attachments:
+      Suppressers:
+      - Name: No Suppressor
+        ID: 0
+        Description: 
+      Sights: []
+      Foregrips: []
+      Magazines:
+      - Name: Normal
+        ID: 0
+        Description: 
+  - WeaponName: Rifle6
+    GunID: 8
+    Camos:
+    - Name: Default
+      GlobalID: 0
+      ID: 0
+      Camo: {fileID: 2100000, guid: d06140c5eb850234cbd0989044e564e4, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 5
+    - Name: Urban
+      GlobalID: 1
+      ID: 1
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 5
+    - Name: Toxi
+      GlobalID: 3
+      ID: 2
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 5
+    - Name: Artic
+      GlobalID: 2
+      ID: 3
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 5
+    - Name: Dragon
+      GlobalID: 5
+      ID: 4
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 5
+    - Name: Patriot
+      GlobalID: 4
+      ID: 5
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 5
+    Attachments:
+      Suppressers:
+      - Name: No Suppressor
+        ID: 0
+        Description: 
+      - Name: Silencer
+        ID: 1
+        Description: 
+      - Name: Small Barrel
+        ID: 2
+        Description: 
+      Sights:
+      - Name: Iron Sight
+        ID: 0
+        Description: 
+      Foregrips:
+      - Name: None
+        ID: 0
+        Description: 
+      - Name: Vertical Grip
+        ID: 1
+        Description: 
+      - Name: Horizontal Grip
+        ID: 2
+        Description: 
+      Magazines:
+      - Name: Normal
+        ID: 0
+        Description: 
+  - WeaponName: SMG4
+    GunID: 9
+    Camos:
+    - Name: Default
+      GlobalID: 0
+      ID: 0
+      Camo: {fileID: 2100000, guid: d06140c5eb850234cbd0989044e564e4, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 6
+    - Name: Urban
+      GlobalID: 1
+      ID: 1
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 6
+    - Name: Toxi
+      GlobalID: 3
+      ID: 2
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 6
+    - Name: Artic
+      GlobalID: 2
+      ID: 3
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 6
+    - Name: Dragon
+      GlobalID: 5
+      ID: 4
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 6
+    - Name: Patriot
+      GlobalID: 4
+      ID: 5
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 6
+    Attachments:
+      Suppressers:
+      - Name: No Suppressor
+        ID: 0
+        Description: 
+      - Name: Silencer
+        ID: 1
+        Description: 
+      - Name: Small Barrel
+        ID: 2
+        Description: 
+      Sights:
+      - Name: Iron Sight
+        ID: 0
+        Description: 
+      Foregrips: []
+      Magazines:
+      - Name: Normal
+        ID: 0
+        Description: 
+  - WeaponName: Pistol4
+    GunID: 10
+    Camos:
+    - Name: Default
+      GlobalID: 0
+      ID: 0
+      Camo: {fileID: 2100000, guid: d06140c5eb850234cbd0989044e564e4, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 7
+    - Name: Urban
+      GlobalID: 1
+      ID: 1
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 7
+    - Name: Toxi
+      GlobalID: 3
+      ID: 2
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 7
+    - Name: Artic
+      GlobalID: 2
+      ID: 3
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 7
+    - Name: Dragon
+      GlobalID: 5
+      ID: 4
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 7
+    - Name: Patriot
+      GlobalID: 4
+      ID: 5
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 7
+    Attachments:
+      Suppressers:
+      - Name: No Suppressor
+        ID: 0
+        Description: 
+      - Name: Silencer
+        ID: 1
+        Description: 
+      - Name: Small Barrel
+        ID: 2
+        Description: 
+      Sights:
+      - Name: Iron Sight
+        ID: 0
+        Description: 
+      - Name: Holo Sight
+        ID: 1
+        Description: 
+      - Name: Cobra
+        ID: 2
+        Description: 
+      Foregrips: []
+      Magazines:
+      - Name: Normal
+        ID: 0
+        Description: 
+      - Name: Extended
+        ID: 1
+        Description: 
+  - WeaponName: Shotgun4
+    GunID: 11
+    Camos:
+    - Name: Default
+      GlobalID: 0
+      ID: 0
+      Camo: {fileID: 2100000, guid: d06140c5eb850234cbd0989044e564e4, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 8
+    - Name: Urban
+      GlobalID: 1
+      ID: 1
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 8
+    - Name: Toxi
+      GlobalID: 3
+      ID: 2
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 8
+    - Name: Artic
+      GlobalID: 2
+      ID: 3
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 8
+    - Name: Dragon
+      GlobalID: 5
+      ID: 4
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 8
+    - Name: Patriot
+      GlobalID: 4
+      ID: 5
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 8
+    Attachments:
+      Suppressers:
+      - Name: No Suppressor
+        ID: 0
+        Description: 
+      - Name: Silencer
+        ID: 1
+        Description: 
+      - Name: Small Barrel
+        ID: 2
+        Description: 
+      Sights:
+      - Name: Iron Sight
+        ID: 0
+        Description: 
+      - Name: Holo Sight
+        ID: 1
+        Description: 
+      - Name: Cobra
+        ID: 2
+        Description: 
+      Foregrips: []
+      Magazines:
+      - Name: Normal
+        ID: 0
+        Description: 
+  - WeaponName: SniperRifle3
+    GunID: 12
+    Camos:
+    - Name: Default
+      GlobalID: 0
+      ID: 0
+      Camo: {fileID: 2100000, guid: d06140c5eb850234cbd0989044e564e4, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 9
+    - Name: Urban
+      GlobalID: 1
+      ID: 1
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 9
+    - Name: Toxi
+      GlobalID: 3
+      ID: 2
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 9
+    - Name: Artic
+      GlobalID: 2
+      ID: 3
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 9
+    - Name: Dragon
+      GlobalID: 5
+      ID: 4
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 9
+    - Name: Patriot
+      GlobalID: 4
+      ID: 5
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 9
+    Attachments:
+      Suppressers:
+      - Name: No Suppressor
+        ID: 0
+        Description: 
+      Sights:
+      - Name: Iron Sight
+        ID: 0
+        Description: 
+      Foregrips: []
+      Magazines:
+      - Name: Normal
+        ID: 0
+        Description: 
+  - WeaponName: SMG5
+    GunID: 13
+    Camos:
+    - Name: Default
+      GlobalID: 0
+      ID: 0
+      Camo: {fileID: 2100000, guid: d06140c5eb850234cbd0989044e564e4, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 10
+    - Name: Urban
+      GlobalID: 1
+      ID: 1
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 10
+    - Name: Toxi
+      GlobalID: 3
+      ID: 2
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 10
+    - Name: Artic
+      GlobalID: 2
+      ID: 3
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 10
+    - Name: Dragon
+      GlobalID: 5
+      ID: 4
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 10
+    - Name: Patriot
+      GlobalID: 4
+      ID: 5
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 10
+    Attachments:
+      Suppressers:
+      - Name: No Suppressor
+        ID: 0
+        Description: 
+      - Name: Silencer
+        ID: 1
+        Description: 
+      - Name: Small Barrel
+        ID: 2
+        Description: 
+      Sights:
+      - Name: Iron Sight
+        ID: 0
+        Description: 
+      - Name: Holo Sight
+        ID: 1
+        Description: 
+      - Name: Cobra
+        ID: 2
+        Description: 
+      Foregrips: []
+      Magazines:
+      - Name: Normal
+        ID: 0
+        Description: 
+  - WeaponName: Pistol5
+    GunID: 16
+    Camos:
+    - Name: Default
+      GlobalID: 0
+      ID: 0
+      Camo: {fileID: 2100000, guid: d06140c5eb850234cbd0989044e564e4, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 11
+    - Name: Urban
+      GlobalID: 1
+      ID: 1
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 11
+    - Name: Toxi
+      GlobalID: 3
+      ID: 2
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 11
+    - Name: Artic
+      GlobalID: 2
+      ID: 3
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 11
+    - Name: Dragon
+      GlobalID: 5
+      ID: 4
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 11
+    - Name: Patriot
+      GlobalID: 4
+      ID: 5
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 11
+    Attachments:
+      Suppressers:
+      - Name: No Suppressor
+        ID: 0
+        Description: 
+      Sights:
+      - Name: Iron Sight
+        ID: 0
+        Description: 
+      Foregrips: []
+      Magazines:
+      - Name: Normal
+        ID: 0
+        Description: 
+  - WeaponName: SniperRifle4
+    GunID: 17
+    Camos:
+    - Name: Default
+      GlobalID: 0
+      ID: 0
+      Camo: {fileID: 2100000, guid: d06140c5eb850234cbd0989044e564e4, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 12
+    - Name: Urban
+      GlobalID: 1
+      ID: 1
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 12
+    - Name: Toxi
+      GlobalID: 3
+      ID: 2
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 12
+    - Name: Artic
+      GlobalID: 2
+      ID: 3
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 12
+    - Name: Dragon
+      GlobalID: 5
+      ID: 4
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 12
+    - Name: Patriot
+      GlobalID: 4
+      ID: 5
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 12
+    Attachments:
+      Suppressers:
+      - Name: No Suppressor
+        ID: 0
+        Description: 
+      Sights:
+      - Name: Iron Sight
+        ID: 0
+        Description: 
+      Foregrips: []
+      Magazines:
+      - Name: Normal
+        ID: 0
+        Description: 
+  - WeaponName: Rifle7
+    GunID: 18
+    Camos:
+    - Name: Default
+      GlobalID: 0
+      ID: 0
+      Camo: {fileID: 2100000, guid: d06140c5eb850234cbd0989044e564e4, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 13
+    - Name: Urban
+      GlobalID: 1
+      ID: 1
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 13
+    - Name: Toxi
+      GlobalID: 3
+      ID: 2
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 13
+    - Name: Artic
+      GlobalID: 2
+      ID: 3
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 13
+    - Name: Dragon
+      GlobalID: 5
+      ID: 4
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 13
+    - Name: Patriot
+      GlobalID: 4
+      ID: 5
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 13
+    Attachments:
+      Suppressers:
+      - Name: No Suppressor
+        ID: 0
+        Description: 
+      - Name: Silencer
+        ID: 1
+        Description: 
+      - Name: Small Barrel
+        ID: 2
+        Description: 
+      Sights:
+      - Name: Iron Sight
+        ID: 0
+        Description: 
+      - Name: Holo Sight
+        ID: 1
+        Description: 
+      - Name: Cobra
+        ID: 2
+        Description: 
+      Foregrips: []
+      Magazines:
+      - Name: Normal
+        ID: 0
+        Description: 
+  - WeaponName: LMG
+    GunID: 19
+    Camos:
+    - Name: Default
+      GlobalID: 0
+      ID: 0
+      Camo: {fileID: 2100000, guid: d06140c5eb850234cbd0989044e564e4, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 14
+    - Name: Urban
+      GlobalID: 1
+      ID: 1
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 14
+    - Name: Toxi
+      GlobalID: 3
+      ID: 2
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 14
+    - Name: Artic
+      GlobalID: 2
+      ID: 3
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 14
+    - Name: Dragon
+      GlobalID: 5
+      ID: 4
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 14
+    - Name: Patriot
+      GlobalID: 4
+      ID: 5
+      Camo: {fileID: 2100000, guid: 0f5323b734db4354ea18bd943bc8c8aa, type: 2}
+      OverridePreview: {fileID: 0}
+      ofWeaponID: 14
+    Attachments:
+      Suppressers:
+      - Name: No Suppressor
+        ID: 0
+        Description: 
+      - Name: Small Barrel
+        ID: 2
+        Description: 
+      Sights:
+      - Name: Iron Sight
+        ID: 0
+        Description: 
+      - Name: Holo Sight
+        ID: 1
+        Description: 
+      - Name: Cobra
+        ID: 2
+        Description: 
+      Foregrips: []
+      Magazines:
+      - Name: Normal
+        ID: 0
         Description: 
   GlobalCamos:
   - Name: Default
