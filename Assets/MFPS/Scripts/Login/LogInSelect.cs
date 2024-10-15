@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class LogInSelect : MonoBehaviour
 {
-    private string server = "172.28.1.211";
+    private string server = "172.28.11.208";
     private string database = "UnityLoginDB";
     private string user = "root";
     private string password = "0000";
