@@ -18,7 +18,7 @@ public class LogIn : MonoBehaviour
 
     [SerializeField] private GameObject Remem;
 
-    void Start()
+    private void Awake()
     {
         Sel.GetComponent<LogInSelect>().SQLConn();
         conn = Sel.GetComponent<LogInSelect>()._conn;
@@ -36,6 +36,7 @@ public class LogIn : MonoBehaviour
         }
         else
         {
+            LoginManager.Login_Inst.isLoggedIn = false;
             Sel.SetActive(true);
         }
     }
@@ -85,6 +86,7 @@ public class LogIn : MonoBehaviour
                 PlayerPrefs.Save();
             }
 
+            LoginManager.Login_Inst.isLoggedIn = true;
             EnterName.GetComponent<bl_LobbyUI>().LogInName(nickname);
         }
     }

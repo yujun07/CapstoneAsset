@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class LogInSelect : MonoBehaviour
 {
-    private string server = "172.28.1.211";
+    private string server = "172.28.11.208";
     private string database = "UnityLoginDB";
     private string user = "root";
     private string password = "0000";
@@ -19,8 +19,19 @@ public class LogInSelect : MonoBehaviour
     [SerializeField] private GameObject ErrorPanel;
     [SerializeField] private TMP_Text ErrorText;
 
+    private void OnEnable()
+    {
+        if (LoginManager.Login_Inst != null && LoginManager.Login_Inst.isLoggedIn)
+        {
+            gameObject.SetActive(false);
+        }
+        else Debug.Log("LoginManager is null");
+    }
+
     public void Setting()
     {
+        LoginManager.Login_Inst.isLoggedIn = false;
+
         LogIn.SetActive(false);
         SignUp.SetActive(false);
     }
