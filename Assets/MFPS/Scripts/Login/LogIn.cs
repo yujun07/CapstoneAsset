@@ -18,6 +18,8 @@ public class LogIn : MonoBehaviour
 
     [SerializeField] private GameObject Remem;
 
+    [SerializeField] private GameObject ReLogError;
+
     private void Awake()
     {
         Sel.GetComponent<LogInSelect>().SQLConn();
@@ -36,6 +38,15 @@ public class LogIn : MonoBehaviour
                 conn = Sel.GetComponent<LogInSelect>()._conn;
 
                 Login();
+
+                if (!LoginManager.Login_Inst.isLoggedIn)
+                {
+                    ReLogError.SetActive(true);
+                    PlayerPrefs.SetString("ID", "");
+                    PlayerPrefs.SetString("PW", "");
+                    PlayerPrefs.Save();
+
+                }
             }
             else
             {
