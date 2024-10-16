@@ -7,7 +7,7 @@ public class LogInSelect : MonoBehaviour
 {
     private string server = "172.28.11.208";
     private string database = "UnityLoginDB";
-    private string user = "root";
+    private string user = "unity";
     private string password = "0000";
 
     [SerializeField] private GameObject LogIn;
@@ -49,11 +49,15 @@ public class LogInSelect : MonoBehaviour
         {
             ErrorPanel.SetActive(true);
             ErrorText.text = ex.Message;
+
+            LoginManager.Login_Inst.isError = true;
         }
         catch (Exception ex)
         {
             ErrorPanel.SetActive(true);
             ErrorText.text = ex.Message;
+
+            LoginManager.Login_Inst.isError = true;
         }
     }
 

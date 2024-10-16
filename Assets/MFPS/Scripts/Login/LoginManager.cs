@@ -6,6 +6,8 @@ public class LoginManager : MonoBehaviour
 
     public bool isLoggedIn;
 
+    public bool isError;
+
     private void Awake()
     {
         if (Login_Inst == null)
