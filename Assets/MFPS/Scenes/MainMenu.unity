@@ -14529,6 +14529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLoggedIn: 0
+  isError: 0
 --- !u!4 &966795981
 Transform:
   m_ObjectHideFlags: 0
@@ -86810,6 +86811,7 @@ MonoBehaviour:
   ErrorMassage: {fileID: 2008878339}
   EnterName: {fileID: 6630592810052545263}
   Remem: {fileID: 523232978}
+  ReLogError: {fileID: 164160625}
 --- !u!114 &6855974338645609985
 MonoBehaviour:
   m_ObjectHideFlags: 0
