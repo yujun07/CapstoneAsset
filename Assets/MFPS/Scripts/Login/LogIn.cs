@@ -21,23 +21,27 @@ public class LogIn : MonoBehaviour
     private void Awake()
     {
         Sel.GetComponent<LogInSelect>().SQLConn();
-        conn = Sel.GetComponent<LogInSelect>()._conn;
 
-        string ReID = null;
-        string RePW = null;
-
-        if (PlayerPrefs.GetString("ID", ReID) != "" && PlayerPrefs.GetString("PW", RePW) != "")
+        if (!LoginManager.Login_Inst.isError)
         {
-            ID.text = PlayerPrefs.GetString("ID");
-            PW.text = PlayerPrefs.GetString("PW");
-            Sel.SetActive(false);
+            string ReID = null;
+            string RePW = null;
 
-            Login();
-        }
-        else
-        {
-            LoginManager.Login_Inst.isLoggedIn = false;
-            Sel.SetActive(true);
+            if (PlayerPrefs.GetString("ID", ReID) != "" && PlayerPrefs.GetString("PW", RePW) != "")
+            {
+                ID.text = PlayerPrefs.GetString("ID");
+                PW.text = PlayerPrefs.GetString("PW");
+                Sel.SetActive(false);
+
+                conn = Sel.GetComponent<LogInSelect>()._conn;
+
+                Login();
+            }
+            else
+            {
+                LoginManager.Login_Inst.isLoggedIn = false;
+                Sel.SetActive(true);
+            }
         }
     }
 
