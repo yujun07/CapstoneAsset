@@ -19,14 +19,14 @@ namespace MFPS.Addon.Customizer
         public void Init(bl_Customizer customizer)
         {
             cacheCustomizer = customizer;
-            if (Barrel != null && cacheCustomizer.Positions.BarrelPosition != null)
-                Barrel.transform.position = cacheCustomizer.Positions.BarrelPosition.position;
-            if (Optics != null && cacheCustomizer.Positions.OpticPosition != null)
-                Optics.transform.position = cacheCustomizer.Positions.OpticPosition.position;
-            if (Feeder != null && cacheCustomizer.Positions.FeederPosition != null)
-                Feeder.transform.position = cacheCustomizer.Positions.FeederPosition.position;
-            if (Cylinder != null && cacheCustomizer.Positions.CylinderPosition != null)
-                Cylinder.transform.position = cacheCustomizer.Positions.CylinderPosition.position;
+            //if (Barrel != null && cacheCustomizer.Positions.BarrelPosition != null)
+            //    Barrel.transform.position = cacheCustomizer.Positions.BarrelPosition.position;
+            //if (Optics != null && cacheCustomizer.Positions.OpticPosition != null)
+            //    Optics.transform.position = cacheCustomizer.Positions.OpticPosition.position;
+            //if (Feeder != null && cacheCustomizer.Positions.FeederPosition != null)
+            //    Feeder.transform.position = cacheCustomizer.Positions.FeederPosition.position;
+            //if (Cylinder != null && cacheCustomizer.Positions.CylinderPosition != null)
+            //    Cylinder.transform.position = cacheCustomizer.Positions.CylinderPosition.position;
 
             Feeder.gameObject.SetActive(customizer.Attachments.Foregrips.Count > 0);
 

@@ -61,7 +61,7 @@ namespace MFPS.Addon.Customizer
                 CamoRender.ApplyCamo(WeaponName, AttachmentsIDs[4]);
                 firstApply = true;
             }
-            
+
             if (WeaponInfo != null)
             {
                 for (int i = 0; i < WeaponInfo.Camos.Count; i++)
@@ -358,7 +358,7 @@ namespace MFPS.Addon.Customizer
 
         }
 
-        void OnGUI() { if (ShowHud && Customize) { DrawInfo(); } }
+        void OnGUI() { if (ShowHud && Customize) { DrawInfo(); } }    
 
         /// <summary>
         /// function for save in a PlayerPrefs the code with info
