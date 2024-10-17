@@ -978,7 +978,7 @@ public class bl_FirstPersonController : bl_FirstPersonControllerBase
     /// </summary>
     public override void PlatformJump(float force)
     {
-        if (JumpInmune)
+        if (JumpInmune || m_Jumping)
         {
             isDoubleJump = true;
         }
