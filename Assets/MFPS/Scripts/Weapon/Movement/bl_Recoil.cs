@@ -57,7 +57,7 @@ public class bl_Recoil : bl_RecoilBase
         if (GunManager.CurrentGun != null)
         {
             
-            if (GunManager.CurrentGun.isFiring)
+            if (GunManager.CurrentGun.isFiring || GunManager.CurrentGun.isBursting)
             {
                 Recoil += GunManager.CurrentGun.RecoilAmount;
                 Recoil = Mathf.Clamp(Recoil, 0, MaxRecoil);
@@ -125,7 +125,7 @@ public class bl_Recoil : bl_RecoilBase
 #if MFPSM
         if (bl_UtilityHelper.isMobile && bl_MobileControlSettings.Instance.disableRecoil) return;
 #endif
-        if (GunManager.CurrentGun.isFiring)
+        if (GunManager.CurrentGun.isFiring || GunManager.CurrentGun.isBursting)
         {
             if(!wasFiring)
             {
