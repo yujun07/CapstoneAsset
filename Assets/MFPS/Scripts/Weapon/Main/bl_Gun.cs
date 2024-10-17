@@ -69,6 +69,7 @@ public class bl_Gun : bl_GunBase
     public AudioClip ReloadSound2 = null;
     public AudioClip ReloadSound3 = null;
     public AudioSource DelaySource = null;
+    public AudioClip defaultFireSound;
     //cached player components
     public Renderer[] weaponRenders = null;
     public bl_PlayerSettings playerSettings;
@@ -200,7 +201,6 @@ public class bl_Gun : bl_GunBase
     private Vector3 CurrentPos;
     private Quaternion currentRotation, defaultRotation;
     private static BulletInstanceData bulletInstanceData;
-    private AudioClip defaultFireSound;
     private float lastShotTime = 0;
     private bool pendingFirstShot = false;
     private bool m_canFire = false;
