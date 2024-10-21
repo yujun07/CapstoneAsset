@@ -616,6 +616,7 @@ public class bl_Lobby : bl_PhotonHelper, IConnectionCallbacks, ILobbyCallbacks, 
         if (PhotonNetwork.PhotonServerSettings.AppSettings.UseNameServer)
         {
             Debug.Log("Server connection established to: " + PhotonNetwork.CloudRegion);
+            Cover.SetActive(true);
         }
         else
         {
