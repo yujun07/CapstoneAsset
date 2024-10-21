@@ -21,7 +21,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: CanopySetOne_Albedo
-  m_Shader: {fileID: -6465566751694194690, guid: 82cfcb6119809244bbfc51fb54153ca5, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 82cfcb6119809244bbfc51fb54153ca5,
+    type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -290,7 +291,7 @@ Material:
     - _UVMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMaskEmissive: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &8725393516859273351
+--- !u!114 &214156652568052659
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
