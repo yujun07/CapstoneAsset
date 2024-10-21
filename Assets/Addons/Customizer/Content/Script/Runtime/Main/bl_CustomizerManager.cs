@@ -230,11 +230,6 @@ namespace MFPS.Addon.Customizer
             CurrentCustomizer.Randomize();
         }
 
-
-
-
-
-
         public void Save()
         {
             // Set loading state
@@ -253,32 +248,6 @@ namespace MFPS.Addon.Customizer
             isSave = true;
             Invoke(nameof(HideLoading), 2f);
         }
-
-
-
-
-
-
-
-
-        /// <summary>
-        /// 
-        /// </summary>
-        //public void Save()
-        //{
-        //    if (CurrentCustomizer == null)
-        //        return;
-
-        //    isLoading = true;
-        //    CurrentCustomizer.Save();
-        //    isSave = true;
-        //    Invoke(nameof(HideLoading), 2f);
-        //}
-
-
-
-
-
 
         void HideLoading()
         {
