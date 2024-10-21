@@ -58,6 +58,7 @@ public class LogInSelect : MonoBehaviour
             ErrorText.text = ex.Message;
 
             LoginManager.Login_Inst.isError = true;
+            guest.SetActive(true);
         }
     }
 
