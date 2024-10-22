@@ -76,16 +76,11 @@ MonoBehaviour:
   OnDisconnectScene: MainMenu
   highLightColor: {r: 0.44827604, g: 0, b: 1, a: 1}
   AllScenes:
-  - ShowName: DarkCity
-    m_Scene: {fileID: 102900000, guid: 9dd46b493c1396a42b3cf2aa11fde485, type: 3}
-    RealSceneName: CityBuilderUrbanDemo
-    Preview: {fileID: 21300000, guid: 6566c02619a33c04b83af91ef6aa5026, type: 3}
-    NoAllowedGameModes: 02000000
   - ShowName: Xylaris
     m_Scene: {fileID: 102900000, guid: de7e89cacf071b349b930dd2f0a30089, type: 3}
-    RealSceneName: 
-    Preview: {fileID: 0}
-    NoAllowedGameModes: 
+    RealSceneName: DarkCity
+    Preview: {fileID: 21300000, guid: 6566c02619a33c04b83af91ef6aa5026, type: 3}
+    NoAllowedGameModes: 02000000
   AllWeapons:
   - Name: Rifle
     Type: 1
