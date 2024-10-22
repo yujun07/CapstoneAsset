@@ -15,7 +15,7 @@ public class bl_Lobby : bl_PhotonHelper, IConnectionCallbacks, ILobbyCallbacks, 
 {
     #region Public members
     [Header("Photon")]
-    public SeverRegionCode DefaultServer = SeverRegionCode.usw;
+    public SeverRegionCode DefaultServer;
     [LovattoToogle] public bool ShowPhotonStatistics;
 
     [Header("Room Options")]
