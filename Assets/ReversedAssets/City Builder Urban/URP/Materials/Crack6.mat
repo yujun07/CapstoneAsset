@@ -8,7 +8,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Crack6
-  m_Shader: {fileID: -6465566751694194690, guid: 94a93f9b9a5ea204e95dacfbc8dbdb35, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 94a93f9b9a5ea204e95dacfbc8dbdb35,
+    type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -317,7 +318,7 @@ Material:
     - _UVMappingMaskEmissive: {r: 1, g: 0, b: 0, a: 0}
     - _WaterColor: {r: 0.3207547, g: 0.26937, b: 0.20728016, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &6497001063720221434
+--- !u!114 &1061204911350900405
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

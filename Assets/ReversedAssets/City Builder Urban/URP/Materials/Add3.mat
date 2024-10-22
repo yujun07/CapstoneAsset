@@ -8,7 +8,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Add3
-  m_Shader: {fileID: -6465566751694194690, guid: 733860b6fd43a7e4da24858185598f83, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 733860b6fd43a7e4da24858185598f83,
+    type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -304,7 +305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
---- !u!114 &8467928156305428629
+--- !u!114 &3593415576809181312
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
