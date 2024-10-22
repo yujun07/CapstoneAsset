@@ -132,6 +132,8 @@ public class bl_FirstPersonController : bl_FirstPersonControllerBase
     private bool overrideNextLandEvent = false;
     #endregion
 
+    private bool isDoubleJump = false;
+
     #region Unity Methods
     /// <summary>
     /// 
@@ -747,6 +749,12 @@ public class bl_FirstPersonController : bl_FirstPersonControllerBase
                 JumpInmune = false;
                 return fallDistance;
             }
+            else if (isDoubleJump)
+            {
+                isDoubleJump = false;
+                JumpInmune = false;
+                return fallDistance;
+            }
             if ((Time.time - fallingTime) <= 0.4f)
             {
                 if (fallDistance > 0.05f) bl_EventHandler.DispatchPlayerLandEvent(0.2f);
@@ -970,6 +978,11 @@ public class bl_FirstPersonController : bl_FirstPersonControllerBase
     /// </summary>
     public override void PlatformJump(float force)
     {
+        if (JumpInmune || m_Jumping)
+        {
+            isDoubleJump = true;
+        }
+
         hasPlatformJump = true;
         PlatformJumpForce = force;
         JumpInmune = true;

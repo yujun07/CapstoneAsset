@@ -56,12 +56,8 @@ public class bl_Recoil : bl_RecoilBase
 
         if (GunManager.CurrentGun != null)
         {
-            
-            if (GunManager.CurrentGun.isFiring)
+            if (GunManager.CurrentGun.isFiring || GunManager.CurrentGun.isBursting && GunManager.CurrentGun.WeaponType != GunType.Knife)
             {
-                Recoil += GunManager.CurrentGun.RecoilAmount;
-                Recoil = Mathf.Clamp(Recoil, 0, MaxRecoil);
-
                 if (AutomaticallyComeBack)
                 {
                     Quaternion q = Quaternion.Euler(new Vector3(-Recoil, 0, 0));
@@ -125,22 +121,8 @@ public class bl_Recoil : bl_RecoilBase
 #if MFPSM
         if (bl_UtilityHelper.isMobile && bl_MobileControlSettings.Instance.disableRecoil) return;
 #endif
-        if (GunManager.CurrentGun.isFiring)
-        {
-            if(!wasFiring)
-            {
-                Recoil += data.Amount;
-                Recoil = Mathf.Clamp(Recoil, 0, MaxRecoil);
-            }
-        }
-        else
-        {
-            if (AutomaticallyComeBack)
-            {
-                Recoil = Mathf.Lerp(Recoil,0,Time.deltaTime * RecoilSpeed);
-            }
-        }
-        
+        Recoil += data.Amount;
+        Recoil = Mathf.Clamp(Recoil, 0, MaxRecoil);
         RecoilSpeed = data.Speed;
     }
 

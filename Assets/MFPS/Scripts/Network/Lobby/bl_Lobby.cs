@@ -43,6 +43,8 @@ public class bl_Lobby : bl_PhotonHelper, IConnectionCallbacks, ILobbyCallbacks, 
     private bool autoRejoinLobby = false;
     #endregion
 
+    [SerializeField] private GameObject Cover;
+
     /// <summary>
     /// 
     /// </summary>
@@ -614,6 +616,7 @@ public class bl_Lobby : bl_PhotonHelper, IConnectionCallbacks, ILobbyCallbacks, 
         if (PhotonNetwork.PhotonServerSettings.AppSettings.UseNameServer)
         {
             Debug.Log("Server connection established to: " + PhotonNetwork.CloudRegion);
+            Cover.SetActive(true);
         }
         else
         {
@@ -656,6 +659,10 @@ public class bl_Lobby : bl_PhotonHelper, IConnectionCallbacks, ILobbyCallbacks, 
         {
             connectionState = LobbyConnectionState.Connected;
             Debug.Log($"Player <b>{bl_PhotonNetwork.LocalPlayer.NickName}</b> joined to the lobby, UserId: {bl_PhotonNetwork.LocalPlayer.UserId}");
+
+            Cover.SetActive(false);
+
+
             bl_LobbyLoadingScreenBase.Instance.SetActive(true).HideIn(2, true);
         }
 

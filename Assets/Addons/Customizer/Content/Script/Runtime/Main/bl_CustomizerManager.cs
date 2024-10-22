@@ -230,16 +230,21 @@ namespace MFPS.Addon.Customizer
             CurrentCustomizer.Randomize();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
         public void Save()
         {
-            if (CurrentCustomizer == null)
-                return;
-
+            // Set loading state
             isLoading = true;
-            CurrentCustomizer.Save();
+
+            // Iterate through all weapons and save each one
+            foreach (bl_Customizer customizer in AllCustom)
+            {
+                if (customizer != null)
+                {
+                    customizer.Save();
+                }
+            }
+
+            // Mark as saved and hide the loading indicator after saving
             isSave = true;
             Invoke(nameof(HideLoading), 2f);
         }

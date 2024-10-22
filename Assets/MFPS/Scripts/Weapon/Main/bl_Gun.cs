@@ -57,6 +57,7 @@ public class bl_Gun : bl_GunBase
     public float spread = 0.0f;             // current spread of the gun
     public float decreaseSpreadPerSec = 0.5f;// amount of accuracy regained per frame when the gun isn't being fired 
     [HideInInspector] public bool isReloading = false;       // am I in the process of reloading
+    [HideInInspector] public bool isBursting = false;
     // Recoil
     public float RecoilAmount = 5.0f;
     public float RecoilSpeed = 2;
@@ -68,6 +69,7 @@ public class bl_Gun : bl_GunBase
     public AudioClip ReloadSound2 = null;
     public AudioClip ReloadSound3 = null;
     public AudioSource DelaySource = null;
+    [HideInInspector] public AudioClip defaultFireSound;
     //cached player components
     public Renderer[] weaponRenders = null;
     public bl_PlayerSettings playerSettings;
@@ -198,9 +200,7 @@ public class bl_Gun : bl_GunBase
     private Vector3 DefaultPos;
     private Vector3 CurrentPos;
     private Quaternion currentRotation, defaultRotation;
-    private bool isBursting = false;
     private static BulletInstanceData bulletInstanceData;
-    private AudioClip defaultFireSound;
     private float lastShotTime = 0;
     private bool pendingFirstShot = false;
     private bool m_canFire = false;
