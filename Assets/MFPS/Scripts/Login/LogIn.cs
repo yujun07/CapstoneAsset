@@ -22,7 +22,7 @@ public class LogIn : MonoBehaviour
 
     private void Awake()
     {
-        Sel.GetComponent<LogInSelect>().SQLConn();
+        LoginManager.Login_Inst.SQLConn();
 
         if (!LoginManager.Login_Inst.isError)
         {
@@ -35,7 +35,7 @@ public class LogIn : MonoBehaviour
                 PW.text = PlayerPrefs.GetString("PW");
                 Sel.SetActive(false);
 
-                conn = Sel.GetComponent<LogInSelect>()._conn;
+                conn = LoginManager.Login_Inst._conn;
 
                 Login();
 
@@ -58,8 +58,8 @@ public class LogIn : MonoBehaviour
 
     public void OnClickOk()
     {
-        Sel.GetComponent<LogInSelect>().SQLConn();
-        conn = Sel.GetComponent<LogInSelect>()._conn;
+        LoginManager.Login_Inst.SQLConn();
+        conn = LoginManager.Login_Inst._conn;
 
         Login();
     }
@@ -101,14 +101,20 @@ public class LogIn : MonoBehaviour
                 PlayerPrefs.Save();
             }
 
-            LoginManager.Login_Inst.isLoggedIn = true;
+            //MySqlCommand updateCmd = new MySqlCommand("UPDATE users SET isLoggedIn = 1 WHERE Username = @p_username", conn);
+            //updateCmd.Parameters.AddWithValue("@p_username", ID.text);
+            //updateCmd.ExecuteNonQuery();
+
             conn.OpenAsync();
-            
+
             using (var command = conn.CreateCommand())
             {
-                command.CommandText = "UPDATE Äõ¸®¹® ÀÛ¼º";
+                command.CommandText = "UPDATE users SET isLoggedIN = 1 WHERE Username = @p_username";
+                command.Parameters.AddWithValue("@p_username", ID.text);
                 command.ExecuteNonQueryAsync();
             }
+
+            LoginManager.Login_Inst.isLoggedIn = true;
             EnterName.GetComponent<bl_LobbyUI>().LogInName(nickname);
         }
     }
