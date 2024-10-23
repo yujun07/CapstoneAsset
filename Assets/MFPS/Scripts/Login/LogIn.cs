@@ -104,18 +104,34 @@ public class LogIn : MonoBehaviour
             //MySqlCommand updateCmd = new MySqlCommand("UPDATE users SET isLoggedIn = 1 WHERE Username = @p_username", conn);
             //updateCmd.Parameters.AddWithValue("@p_username", ID.text);
             //updateCmd.ExecuteNonQuery();
-
-            conn.OpenAsync();
-
-            using (var command = conn.CreateCommand())
-            {
-                command.CommandText = "UPDATE users SET isLoggedIN = 1 WHERE Username = @p_username";
-                command.Parameters.AddWithValue("@p_username", ID.text);
-                command.ExecuteNonQueryAsync();
-            }
-
+            UpdateLoginStatus(ID.text);
             LoginManager.Login_Inst.isLoggedIn = true;
             EnterName.GetComponent<bl_LobbyUI>().LogInName(nickname);
+        }
+    }
+    private void UpdateLoginStatus(string username)
+    {
+        try
+        {
+            if (conn.State != System.Data.ConnectionState.Open)
+            {
+                conn.Open();
+            }
+
+            MySqlCommand updateCmd = new MySqlCommand("UPDATE users SET isLoggedIn = 1 WHERE Username = @p_username", conn);
+            updateCmd.Parameters.AddWithValue("@p_username", username);
+            updateCmd.ExecuteNonQuery();
+        }
+        catch (MySqlException ex)
+        {
+            Debug.LogError("Failed to update login status: " + ex.Message);
+        }
+        finally
+        {
+            if (conn != null && conn.State == System.Data.ConnectionState.Open)
+            {
+                conn.Close();
+            }
         }
     }
 
