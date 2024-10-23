@@ -102,6 +102,13 @@ public class LogIn : MonoBehaviour
             }
 
             LoginManager.Login_Inst.isLoggedIn = true;
+            conn.OpenAsync();
+            
+            using (var command = conn.CreateCommand())
+            {
+                command.CommandText = "UPDATE 쿼리문 작성";
+                command.ExecuteNonQueryAsync();
+            }
             EnterName.GetComponent<bl_LobbyUI>().LogInName(nickname);
         }
     }
