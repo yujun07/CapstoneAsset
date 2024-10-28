@@ -27,8 +27,8 @@ public class SignUp : MonoBehaviour
 
     public void OnClickOk()
     {
-        Sel.GetComponent<LogInSelect>().SQLConn();
-        conn = Sel.GetComponent<LogInSelect>()._conn;
+        LoginManager.Login_Inst.SQLConn();
+        conn = LoginManager.Login_Inst._conn;
 
         CleanInput();
 

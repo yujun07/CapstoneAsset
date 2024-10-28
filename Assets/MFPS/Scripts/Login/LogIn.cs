@@ -22,7 +22,7 @@ public class LogIn : MonoBehaviour
 
     private void Awake()
     {
-        Sel.GetComponent<LogInSelect>().SQLConn();
+        LoginManager.Login_Inst.SQLConn();
 
         if (!LoginManager.Login_Inst.isError)
         {
@@ -35,7 +35,7 @@ public class LogIn : MonoBehaviour
                 PW.text = PlayerPrefs.GetString("PW");
                 Sel.SetActive(false);
 
-                conn = Sel.GetComponent<LogInSelect>()._conn;
+                conn = LoginManager.Login_Inst._conn;
 
                 Login();
 
@@ -58,8 +58,8 @@ public class LogIn : MonoBehaviour
 
     public void OnClickOk()
     {
-        Sel.GetComponent<LogInSelect>().SQLConn();
-        conn = Sel.GetComponent<LogInSelect>()._conn;
+        LoginManager.Login_Inst.SQLConn();
+        conn = LoginManager.Login_Inst._conn;
 
         Login();
     }
@@ -101,8 +101,37 @@ public class LogIn : MonoBehaviour
                 PlayerPrefs.Save();
             }
 
+            //MySqlCommand updateCmd = new MySqlCommand("UPDATE users SET isLoggedIn = 1 WHERE Username = @p_username", conn);
+            //updateCmd.Parameters.AddWithValue("@p_username", ID.text);
+            //updateCmd.ExecuteNonQuery();
+            UpdateLoginStatus(ID.text);
             LoginManager.Login_Inst.isLoggedIn = true;
             EnterName.GetComponent<bl_LobbyUI>().LogInName(nickname);
+        }
+    }
+    private void UpdateLoginStatus(string username)
+    {
+        try
+        {
+            if (conn.State != System.Data.ConnectionState.Open)
+            {
+                conn.Open();
+            }
+
+            MySqlCommand updateCmd = new MySqlCommand("UPDATE users SET isLoggedIn = 1 WHERE Username = @p_username", conn);
+            updateCmd.Parameters.AddWithValue("@p_username", username);
+            updateCmd.ExecuteNonQuery();
+        }
+        catch (MySqlException ex)
+        {
+            Debug.LogError("Failed to update login status: " + ex.Message);
+        }
+        finally
+        {
+            if (conn != null && conn.State == System.Data.ConnectionState.Open)
+            {
+                conn.Close();
+            }
         }
     }
 
