@@ -696,6 +696,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CustomizerManager
       objectReference: {fileID: 0}
+    - target: {fileID: 165932, guid: 9f544a4b303b19d419b0992053f834ad, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 438132, guid: 9f544a4b303b19d419b0992053f834ad, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
