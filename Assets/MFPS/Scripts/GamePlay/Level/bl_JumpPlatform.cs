@@ -7,7 +7,7 @@ namespace MFPS.Runtime.Level
     [RequireComponent(typeof(AudioSource))]
     public class bl_JumpPlatform : MonoBehaviour
     {
-        [Range(0, 25)] public float JumpForce;
+        [Range(0, 30)] public float JumpForce;
         [SerializeField] private AudioClip JumpSound;
 
         private void OnTriggerEnter(Collider other)
