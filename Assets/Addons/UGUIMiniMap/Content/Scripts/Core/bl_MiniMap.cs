@@ -417,11 +417,11 @@ public class bl_MiniMap : bl_MonoBehaviour
         {
             ToggleSize();
         }
-        if (Input.GetKeyDown(DecreaseHeightKey) && DefaultHeight < MaxZoom)
+        if (Input.GetKeyDown(DecreaseHeightKey) || Input.GetAxis("Mouse ScrollWheel") < 0 && DefaultHeight < MaxZoom && isFullScreen)
         {
             ChangeHeight(true);
         }
-        if (Input.GetKeyDown(IncreaseHeightKey) && DefaultHeight > MinZoom)
+        if (Input.GetKeyDown(IncreaseHeightKey) || Input.GetAxis("Mouse ScrollWheel") > 0 && DefaultHeight > MinZoom && isFullScreen)
         {
             ChangeHeight(false);
         }
