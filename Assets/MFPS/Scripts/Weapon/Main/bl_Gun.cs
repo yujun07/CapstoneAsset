@@ -69,7 +69,6 @@ public class bl_Gun : bl_GunBase
     public AudioClip ReloadSound2 = null;
     public AudioClip ReloadSound3 = null;
     public AudioSource DelaySource = null;
-    [HideInInspector] public AudioClip defaultFireSound;
     //cached player components
     public Renderer[] weaponRenders = null;
     public bl_PlayerSettings playerSettings;
@@ -181,6 +180,7 @@ public class bl_Gun : bl_GunBase
     public bool canBeTakenWhenIsEmpty = true;
     private bool alreadyKnife = false;
     private AudioSource Source;
+    private AudioClip defaultFireSound;
     private Camera WeaponCamera;
     private bool inReloadMode = false;
     private AmmunitionType AmmoType = AmmunitionType.Bullets;
