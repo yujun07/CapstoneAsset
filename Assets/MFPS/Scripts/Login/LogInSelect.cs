@@ -1,6 +1,3 @@
-using MySql.Data.MySqlClient;
-using System;
-using TMPro;
 using UnityEngine;
 
 public class LogInSelect : MonoBehaviour
@@ -24,7 +21,6 @@ public class LogInSelect : MonoBehaviour
     public void Setting()
     {
         LoginManager.Login_Inst.isLoggedIn = false;
-        LoginManager.Login_Inst.LogoutUser();
 
         LogIn.SetActive(false);
         SignUp.SetActive(false);

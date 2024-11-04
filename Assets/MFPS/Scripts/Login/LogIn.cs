@@ -1,4 +1,3 @@
-using MySql.Data.MySqlClient;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -14,16 +13,12 @@ public class LogIn : MonoBehaviour
 
     [SerializeField] private GameObject EnterName;
 
-    private MySqlConnection conn;
-
     [SerializeField] private GameObject Remem;
 
     [SerializeField] private GameObject ReLogError;
 
     private void Awake()
     {
-        LoginManager.Login_Inst.SQLConn();
-
         if (!LoginManager.Login_Inst.isError)
         {
             string ReID = null;
@@ -35,8 +30,6 @@ public class LogIn : MonoBehaviour
                 PW.text = PlayerPrefs.GetString("PW");
                 Sel.SetActive(false);
 
-                conn = LoginManager.Login_Inst._conn;
-
                 Login();
 
                 if (!LoginManager.Login_Inst.isLoggedIn)
@@ -45,7 +38,6 @@ public class LogIn : MonoBehaviour
                     PlayerPrefs.SetString("ID", "");
                     PlayerPrefs.SetString("PW", "");
                     PlayerPrefs.Save();
-
                 }
             }
             else
@@ -58,41 +50,27 @@ public class LogIn : MonoBehaviour
 
     public void OnClickOk()
     {
-        LoginManager.Login_Inst.SQLConn();
-        conn = LoginManager.Login_Inst._conn;
-
         Login();
     }
 
-    public void Login()
+    private void Login()
     {
-        MySqlCommand cmd = new MySqlCommand("LoginUser", conn);
-        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+        var gameDB = GameDB.GetSingleton();
+        var character = gameDB.GetCharacter(ID.text, PW.text);
 
-        cmd.Parameters.AddWithValue("@p_username", ID.text);
-        cmd.Parameters.AddWithValue("@p_password", PW.text);
-
-        MySqlParameter nicknameParam = new MySqlParameter("@p_nickname", MySqlDbType.VarChar);
-        nicknameParam.Direction = System.Data.ParameterDirection.Output;
-        nicknameParam.Size = 16;
-        cmd.Parameters.Add(nicknameParam);
-
-        cmd.ExecuteNonQuery();
-        string nickname = nicknameParam.Value.ToString();
-
-        if (string.IsNullOrEmpty(nickname))
+        if (character != null)
         {
-            ErrorMassage.gameObject.SetActive(true);
-            ErrorMassage.text = "The username or password is incorrect.";
-            StopAllCoroutines();
-            StartCoroutine(ErrorText());
-        }
-        else
-        {
-            if (conn != null)
+            if (character.LoggedIn == 1)
             {
-                conn.Close();
+                ErrorMassage.gameObject.SetActive(true);
+                ErrorMassage.text = "An account is already logged in.";
+                StopAllCoroutines();
+                StartCoroutine(ErrorText());
+
+                return;
             }
+
+            Debug.Log("로그인 성공");
 
             if (Remem.GetComponent<Remember>().Check())
             {
@@ -100,38 +78,18 @@ public class LogIn : MonoBehaviour
                 PlayerPrefs.SetString("PW", PW.text);
                 PlayerPrefs.Save();
             }
-
-            //MySqlCommand updateCmd = new MySqlCommand("UPDATE users SET isLoggedIn = 1 WHERE Username = @p_username", conn);
-            //updateCmd.Parameters.AddWithValue("@p_username", ID.text);
-            //updateCmd.ExecuteNonQuery();
-            UpdateLoginStatus(ID.text);
+            
             LoginManager.Login_Inst.isLoggedIn = true;
-            EnterName.GetComponent<bl_LobbyUI>().LogInName(nickname);
-        }
-    }
-    private void UpdateLoginStatus(string username)
-    {
-        try
-        {
-            if (conn.State != System.Data.ConnectionState.Open)
-            {
-                conn.Open();
-            }
+            LoginManager.Login_Inst.Nick = character.Nick;
 
-            MySqlCommand updateCmd = new MySqlCommand("UPDATE users SET isLoggedIn = 1 WHERE Username = @p_username", conn);
-            updateCmd.Parameters.AddWithValue("@p_username", username);
-            updateCmd.ExecuteNonQuery();
+            EnterName.GetComponent<bl_LobbyUI>().LogInName(character.Nick);
         }
-        catch (MySqlException ex)
+        else
         {
-            Debug.LogError("Failed to update login status: " + ex.Message);
-        }
-        finally
-        {
-            if (conn != null && conn.State == System.Data.ConnectionState.Open)
-            {
-                conn.Close();
-            }
+            ErrorMassage.gameObject.SetActive(true);
+            ErrorMassage.text = "The ID or password is incorrect.";
+            StopAllCoroutines();
+            StartCoroutine(ErrorText());
         }
     }
 

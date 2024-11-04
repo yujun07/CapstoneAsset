@@ -359,9 +359,6 @@ public class bl_LobbyUI : MonoBehaviour
 
     public void LogInName(string name)
     {
-        if (string.IsNullOrEmpty(name))
-            return;
-
         int check = bl_GameData.Instance.CheckPlayerName(name);
         if (check == 1)
         {
