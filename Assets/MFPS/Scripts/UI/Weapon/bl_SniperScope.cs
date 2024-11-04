@@ -103,7 +103,11 @@ public class bl_SniperScope : bl_SniperScopeBase
                       foreach (GameObject go in OnScopeDisable)
                       {
                           if (go == null) continue;
-                          go.SetActive(false);
+                          MeshRenderer[] meshRenderers = go.GetComponentsInChildren<MeshRenderer>();
+                          foreach (MeshRenderer renderer in meshRenderers)
+                          {
+                              renderer.enabled = false; // MeshRenderer 비활성화
+                          }
                       }
                   });
 
