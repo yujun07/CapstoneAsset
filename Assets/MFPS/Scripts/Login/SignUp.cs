@@ -1,5 +1,4 @@
 using UnityEngine;
-using MySql.Data.MySqlClient;
 using TMPro;
 using System.Collections;
 using System.Text.RegularExpressions;
@@ -11,6 +10,7 @@ public class SignUp : MonoBehaviour
     [SerializeField] private TMP_Text ID;
     [SerializeField] private TMP_Text PW;
     [SerializeField] private TMP_Text NickName;
+
     private string CleanID;
     private string CleanPW;
     private string CleanNick;
@@ -19,17 +19,12 @@ public class SignUp : MonoBehaviour
 
     [SerializeField] private GameObject EnterOK;
 
-    private MySqlConnection conn;
-
     private string IDpattern = "^[a-zA-Z0-9]*$";
     private string PWpattern = @"^[a-zA-Z0-9!""#$%&'()*+,\-./:<>?@[\\\]^_`{|}~]*$";
     private string NICKpattern = "^[a-zA-Z0-9\\s]*$";
 
     public void OnClickOk()
     {
-        LoginManager.Login_Inst.SQLConn();
-        conn = LoginManager.Login_Inst._conn;
-
         CleanInput();
 
         if (CleanID.Length == 0 || CleanPW.Length == 0)
@@ -103,7 +98,6 @@ public class SignUp : MonoBehaviour
 
     private bool IDTest()
     {
-        // 정규식으로 검사
         if (Regex.IsMatch(CleanID, IDpattern))
         {
             return true;
@@ -117,7 +111,6 @@ public class SignUp : MonoBehaviour
 
     private bool PWTest()
     {
-        // 정규식으로 검사
         if (Regex.IsMatch(CleanPW, PWpattern))
         {
             return true;
@@ -156,85 +149,45 @@ public class SignUp : MonoBehaviour
 
     public void Register()
     {
-        try
+        var gameDB = GameDB.GetSingleton();
+        int a = gameDB.SignUp(CleanID, CleanPW, CleanNick);
+
+        if (a == 2)
         {
-            MySqlCommand cmd = new MySqlCommand("RegisterUser", conn);
-            cmd.CommandType = System.Data.CommandType.StoredProcedure;
-
-            cmd.Parameters.AddWithValue("@p_username", CleanID);
-            cmd.Parameters.AddWithValue("@p_password", CleanPW);
-            cmd.Parameters.AddWithValue("@p_nickname", CleanNick);
-
-            int rowsAffected = cmd.ExecuteNonQuery();
-
-            if (rowsAffected > 0)
-            {
-                Login();
-            }
-            else
-            {
-                Debug.Log("Registration failed. No rows were affected.");
-            }
+            Login();
         }
-        catch (MySqlException ex)
+        else if (a == 1)
         {
-            Debug.Log(ex.Number);
-
-            if (ex.Number == 1644)
-            {
-                ErrorText.gameObject.SetActive(true);
-                ErrorText.text = "That ID already exists. Please choose a different one.";
-                StopAllCoroutines();
-                StartCoroutine(ErrorField());
-            }
-            else if (ex.Number == 1062)
-            {
-                ErrorText.gameObject.SetActive(true);
-                ErrorText.text = "That NickName already exists. Please choose a different one.";
-                StopAllCoroutines();
-                StartCoroutine(ErrorField());
-            }
+            ErrorText.gameObject.SetActive(true);
+            ErrorText.text = "Nickname already exists.";
+            StopAllCoroutines();
+            StartCoroutine(ErrorField());
+        }
+        else if (a == 0)
+        {
+            ErrorText.gameObject.SetActive(true);
+            ErrorText.text = "ID already exists.";
+            StopAllCoroutines();
+            StartCoroutine(ErrorField());
         }
     }
 
 
     public void Login()
     {
-        try
+        var gameDB = GameDB.GetSingleton();
+        var character = gameDB.GetCharacter(CleanID, CleanPW);
+
+        if (character != null)
         {
-            MySqlCommand cmd = new MySqlCommand("LoginUser", conn);
-            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            LoginManager.Login_Inst.isLoggedIn = true;
+            LoginManager.Login_Inst.Nick = character.Nick;
 
-            cmd.Parameters.AddWithValue("@p_username", CleanID);
-            cmd.Parameters.AddWithValue("@p_password", CleanPW);
-
-            // Output parameter
-            MySqlParameter nicknameParam = new MySqlParameter("@p_nickname", MySqlDbType.VarChar);
-            nicknameParam.Direction = System.Data.ParameterDirection.Output;
-            nicknameParam.Size = 50;
-            cmd.Parameters.Add(nicknameParam);
-
-            cmd.ExecuteNonQuery();
-            string nickname = nicknameParam.Value.ToString();
-
-            if (string.IsNullOrEmpty(nickname))
-            {
-                Debug.Log("Login failed.");
-            }
-            else
-            {
-                if (conn != null)
-                {
-                    conn.Close();
-                }
-
-                LoginManager.Login_Inst.isLoggedIn = true;
-                EnterOK.GetComponent<bl_LobbyUI>().LogInName(nickname);
-            }
+            EnterOK.GetComponent<bl_LobbyUI>().LogInName(character.Nick);
         }
-        catch (MySqlException ex)
+        else
         {
-            Debug.LogError("Login failed: " + ex.Message);
+            Debug.Log("LoginError");
         }
     }
 
