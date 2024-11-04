@@ -1818,7 +1818,7 @@ public class bl_Gun : bl_GunBase
         get
         {
             bool can = false;
-            if (bulletsLeft < BulletsPerMagazine && m_remainingClips > 0 && controller.State != PlayerState.Running && !isReloading)
+            if (bulletsLeft < BulletsPerMagazine && m_remainingClips > 0 && !isReloading) //controller.State != PlayerState.Running
             {
                 can = true;
             }
