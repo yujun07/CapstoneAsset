@@ -14603,6 +14603,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLoggedIn: 0
   isError: 0
+  Nick: 
 --- !u!4 &966795981
 Transform:
   m_ObjectHideFlags: 0
@@ -80729,7 +80730,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &6630071118775090853
 GameObject:
   m_ObjectHideFlags: 0
@@ -88537,7 +88538,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &7347328793251243760
 MonoBehaviour:
   m_ObjectHideFlags: 0
