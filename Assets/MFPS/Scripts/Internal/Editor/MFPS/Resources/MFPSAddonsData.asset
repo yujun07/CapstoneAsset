@@ -215,7 +215,7 @@ MonoBehaviour:
     KeyName: 
     LastVersion: 1.0.0
     Info: {fileID: 11400000, guid: 6baa9426e8419164fa8d9fa10a038d6f, type: 2}
-    CurrentVersion: --
+    CurrentVersion: 1.0.1
     MinVersion: 1.0
     FolderName: WeaponPack[2]
     DoNotRequireEnabled: 1
