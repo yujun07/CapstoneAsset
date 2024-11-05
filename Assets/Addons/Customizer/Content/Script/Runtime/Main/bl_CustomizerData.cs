@@ -81,22 +81,6 @@ public class bl_CustomizerData : ScriptableObject
         array[3] = int.Parse(split[3]);
         array[4] = int.Parse(split[4]);
 
-        //int[] array = new int[5] { 0, 0, 0, 0, 0 }; // 기본값을 0으로 채움
-        //string[] split = line.Split(',');
-
-        //// split 배열의 길이에 따라 값 할당
-        //for (int i = 0; i < split.Length && i < array.Length; i++)
-        //{
-        //    if (int.TryParse(split[i], out int result))
-        //    {
-        //        array[i] = result;
-        //    }
-        //    else
-        //    {
-        //        Debug.LogWarning("Invalid data format in line: " + line);
-        //    }
-        //}
-
         return array;
     }
 

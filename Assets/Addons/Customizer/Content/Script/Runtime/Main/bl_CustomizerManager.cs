@@ -239,14 +239,6 @@ namespace MFPS.Addon.Customizer
 
             CurrentCustomizer.Save();
 
-            //foreach (bl_Customizer customizer in AllCustom)
-            //{
-            //    if (customizer != null)
-            //    {
-            //        customizer.Save();
-            //    }
-            //}
-
             isSave = true;
             Invoke(nameof(HideLoading), 2f);
         }
