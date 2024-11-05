@@ -103,10 +103,10 @@ public class bl_SniperScope : bl_SniperScopeBase
                       foreach (GameObject go in OnScopeDisable)
                       {
                           if (go == null) continue;
-                          MeshRenderer[] meshRenderers = go.GetComponentsInChildren<MeshRenderer>();
-                          foreach (MeshRenderer renderer in meshRenderers)
+
+                          foreach (Renderer renderer in go.GetComponentsInChildren<Renderer>())
                           {
-                              renderer.enabled = false; // MeshRenderer 비활성화
+                              renderer.enabled = false;
                           }
                       }
                   });
@@ -141,9 +141,12 @@ public class bl_SniperScope : bl_SniperScopeBase
 #if MFPSTPV
                            if (bl_CameraViewSettings.IsThirdPerson()) continue;
 #endif
-                           go.SetActive(true);
+                           //go.SetActive(true);
+                           foreach (Renderer renderer in go.GetComponentsInChildren<Renderer>())
+                           {
+                               renderer.enabled = true;
+                           }
                        }
-
                    });
                 m_gun.PlayerReferences.cameraMotion.SetActiveBreathing(false);
             }
@@ -152,8 +155,7 @@ public class bl_SniperScope : bl_SniperScopeBase
         if (ShowDistance && DistanceText)
         {
             DistanceText.text = m_dist.ToString("00") + "<size=10>m</size>";
-        }
-        
+        }       
     }
 
     /// <summary>
