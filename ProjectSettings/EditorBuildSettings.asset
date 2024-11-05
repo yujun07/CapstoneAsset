@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Addons/Customizer/Content/Scene/Customizer.unity
     guid: 6811d73c02697a645ae6bf049f9c79e1
   - enabled: 1
-    path: Assets/Taeng/DarkCity.unity
+    path: Assets/Taeng/DarkCityTaeng.unity
     guid: 760aee24c8207430ba48ef10ff6872c2
   m_configObjects: {}

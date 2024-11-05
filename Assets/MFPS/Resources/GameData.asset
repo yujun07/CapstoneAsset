@@ -79,13 +79,13 @@ MonoBehaviour:
   - ShowName: Xylaris
     m_Scene: {fileID: 102900000, guid: de7e89cacf071b349b930dd2f0a30089, type: 3}
     RealSceneName: DarkCity
-    Preview: {fileID: 21300000, guid: 6566c02619a33c04b83af91ef6aa5026, type: 3}
+    Preview: {fileID: 21300000, guid: 9c0002cebbe8ad749abb89f20b1267dc, type: 3}
     NoAllowedGameModes: 02000000
   AllWeapons:
   - Name: Rifle
     Type: 1
     Active: 1
-    Damage: 25
+    Damage: 20
     FireRate: 0.09
     ReloadTime: 2
     Range: 500
@@ -102,7 +102,7 @@ MonoBehaviour:
   - Name: Pistol
     Type: 3
     Active: 1
-    Damage: 25
+    Damage: 15
     FireRate: 0.25
     ReloadTime: 1.5
     Range: 300
@@ -153,7 +153,7 @@ MonoBehaviour:
   - Name: Sniper
     Type: 2
     Active: 1
-    Damage: 70
+    Damage: 80
     FireRate: 1.8
     ReloadTime: 2.5
     Range: 700
@@ -289,7 +289,7 @@ MonoBehaviour:
   - Name: SniperRifle3
     Type: 2
     Active: 1
-    Damage: 95
+    Damage: 80
     FireRate: 1.8
     ReloadTime: 2.4
     Range: 700
@@ -357,7 +357,7 @@ MonoBehaviour:
   - Name: Pistol5
     Type: 3
     Active: 1
-    Damage: 50
+    Damage: 40
     FireRate: 1
     ReloadTime: 4.1
     Range: 500
@@ -374,10 +374,10 @@ MonoBehaviour:
   - Name: SniperRifle4
     Type: 2
     Active: 1
-    Damage: 100
+    Damage: 95
     FireRate: 1
     ReloadTime: 2.5
-    Range: 800
+    Range: 700
     Accuracy: 5
     Weight: 3.1
     Unlockability:
@@ -391,7 +391,7 @@ MonoBehaviour:
   - Name: Rifle7
     Type: 1
     Active: 1
-    Damage: 33
+    Damage: 35
     FireRate: 0.12
     ReloadTime: 2.6
     Range: 600
