@@ -487,7 +487,7 @@ public class bl_Gun : bl_GunBase
                 }
                 else
                 {
-                    if (fireDown && CanFire)
+                    if (fireDown && CanFire && WeaponType != GunType.Burst)
                     {
                         isFiring = true;
                         CancelInvoke(nameof(CancelFiring));
