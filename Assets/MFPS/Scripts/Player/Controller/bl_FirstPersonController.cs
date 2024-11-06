@@ -453,10 +453,10 @@ public class bl_FirstPersonController : bl_FirstPersonControllerBase
     /// </summary>
     void OnLand()
     {
-        if (isClimbing) return;
-
         if (!overrideNextLandEvent)
         {
+            Debug.Log("OnLand if");
+
             //land camera effect
             StartCoroutine(m_JumpBob.DoBobCycle());
 
@@ -464,7 +464,14 @@ public class bl_FirstPersonController : bl_FirstPersonControllerBase
             float fallDistance = CalculateFall();
             if (fallDistance > 0.05f) bl_EventHandler.DispatchPlayerLandEvent(fallDistance);
         }
-        else overrideNextLandEvent = false;
+        else
+        {
+            Debug.Log("OnLand else");
+
+            overrideNextLandEvent = false;
+        }
+
+        Debug.Log("OnLand other");
 
         haslanding = true;
         JumpDirection = 0;
@@ -755,6 +762,7 @@ public class bl_FirstPersonController : bl_FirstPersonControllerBase
                 JumpInmune = false;
                 return fallDistance;
             }
+
             if ((Time.time - fallingTime) <= 0.4f)
             {
                 if (fallDistance > 0.05f) bl_EventHandler.DispatchPlayerLandEvent(0.2f);
@@ -1155,14 +1163,64 @@ public class bl_FirstPersonController : bl_FirstPersonControllerBase
 
         bool wasControllable = isControlable;
         isControlable = false;
-        JumpInmune = true;
+
+
+
+
+
+
+
+
+
+        //JumpInmune = true;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         jumpPressed = false;
 
         SetActiveClimbing(true);
 
         // get the position to automatically translate the player to start climbing/down-climbing
         Vector3 startPos = ladder.GetAttachPosition(other, m_CharacterController.height);
-        overrideNextLandEvent = true;
+
+
+
+
+
+
+
+
+
+
+        //overrideNextLandEvent = true;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         // move the player to the start position
         StartCoroutine(MoveTo(startPos, () =>
         {
