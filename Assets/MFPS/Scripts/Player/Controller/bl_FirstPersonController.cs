@@ -453,10 +453,10 @@ public class bl_FirstPersonController : bl_FirstPersonControllerBase
     /// </summary>
     void OnLand()
     {
+        if (isClimbing) return;
+
         if (!overrideNextLandEvent)
         {
-            Debug.Log("OnLand if");
-
             //land camera effect
             StartCoroutine(m_JumpBob.DoBobCycle());
 
@@ -464,14 +464,7 @@ public class bl_FirstPersonController : bl_FirstPersonControllerBase
             float fallDistance = CalculateFall();
             if (fallDistance > 0.05f) bl_EventHandler.DispatchPlayerLandEvent(fallDistance);
         }
-        else
-        {
-            Debug.Log("OnLand else");
-
-            overrideNextLandEvent = false;
-        }
-
-        Debug.Log("OnLand other");
+        else overrideNextLandEvent = false;
 
         haslanding = true;
         JumpDirection = 0;
@@ -1172,7 +1165,7 @@ public class bl_FirstPersonController : bl_FirstPersonControllerBase
 
 
 
-        //JumpInmune = true;
+        JumpInmune = true;
 
 
 
@@ -1203,7 +1196,7 @@ public class bl_FirstPersonController : bl_FirstPersonControllerBase
 
 
 
-        //overrideNextLandEvent = true;
+        overrideNextLandEvent = true;
 
 
 
