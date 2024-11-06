@@ -10,6 +10,7 @@ public class WeaponSpawner : bl_MonoBehaviour
     public Transform[] spawnPoints;
     private GameObject[] gunPrefabs;
     private Transform parentObject;
+    [SerializeField] int numberOfGunsToSpawn;
     protected override void Awake()
     {
         base.Awake();
@@ -27,7 +28,10 @@ public class WeaponSpawner : bl_MonoBehaviour
         base.OnEnable();
         foreach (Transform spawnPoint in spawnPoints)
         {
-            RandomGunSpawn();
+            for (int i = 0; i < numberOfGunsToSpawn; i++)
+            {
+                RandomGunSpawn(spawnPoint);     
+            }
         }
     }
     private void LoadGunPrefabs()
@@ -35,10 +39,8 @@ public class WeaponSpawner : bl_MonoBehaviour
         gunPrefabs = Resources.LoadAll<GameObject>(PickUpGunsPath);
     }
 
-    private void RandomGunSpawn()
+    private void RandomGunSpawn(Transform spawnPoint)
     {
-        int spawnIndex = Random.Range(0, spawnPoints.Length);
-        Transform spawnPoint = spawnPoints[spawnIndex];
         int gunIndex = Random.Range(0, gunPrefabs.Length);
         GameObject selectedGunPrefab = gunPrefabs[gunIndex];
 
