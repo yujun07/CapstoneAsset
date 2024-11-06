@@ -3610,7 +3610,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &232725165
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22947,7 +22947,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6855974338645609985}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SignUp, Assembly-CSharp
         m_MethodName: OnClickOk
         m_Mode: 1
@@ -26353,7 +26353,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 6855974338645609984}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: LogIn, Assembly-CSharp
         m_MethodName: OnClickX
         m_Mode: 1
@@ -27278,7 +27278,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 6855974338645609984}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: LogIn, Assembly-CSharp
         m_MethodName: OnClickOk
         m_Mode: 1
@@ -32982,7 +32982,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 6855974338645609985}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SignUp, Assembly-CSharp
         m_MethodName: OnClickX
         m_Mode: 1
@@ -80722,15 +80722,13 @@ GameObject:
   - component: {fileID: 6853328415831580163}
   - component: {fileID: 6855974338645609983}
   - component: {fileID: 6725545415502221027}
-  - component: {fileID: 6855974338645609985}
-  - component: {fileID: 6855974338645609984}
   m_Layer: 5
   m_Name: Player Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &6630071118775090853
 GameObject:
   m_ObjectHideFlags: 0
@@ -86914,43 +86912,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &6855974338645609984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6630062078048346053}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10ab0ed8a272b1f42ad88fdd55d201dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Sel: {fileID: 232725164}
-  ID: {fileID: 102463646}
-  PW: {fileID: 1268038938}
-  ErrorMassage: {fileID: 2008878339}
-  EnterName: {fileID: 6630592810052545263}
-  Remem: {fileID: 523232978}
-  ReLogError: {fileID: 164160625}
---- !u!114 &6855974338645609985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6630062078048346053}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f639b3441c0ade4fabcc1f511854117, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Sel: {fileID: 232725164}
-  ID: {fileID: 625070448}
-  PW: {fileID: 229880843}
-  NickName: {fileID: 266548036}
-  ErrorText: {fileID: 1742839763}
-  EnterOK: {fileID: 6630592810052545263}
 --- !u!225 &6855975543927245577
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -88538,7 +88499,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &7347328793251243760
 MonoBehaviour:
   m_ObjectHideFlags: 0
