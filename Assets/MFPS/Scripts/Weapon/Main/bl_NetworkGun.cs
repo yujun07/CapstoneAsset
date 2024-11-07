@@ -1,5 +1,6 @@
 ﻿using MFPS.Audio;
 using UnityEngine;
+using Photon.Pun;
 
 [RequireComponent(typeof(AudioSource))]
 public class bl_NetworkGun : MonoBehaviour
@@ -30,6 +31,7 @@ public class bl_NetworkGun : MonoBehaviour
     #region Private members
     private AudioSource Source;
     private int WeaponID = -1;
+    private PhotonView photonView;
     [System.NonSerialized]
     public BulletData m_BulletData = new BulletData();
     Vector3 bulletPosition = Vector3.zero;
@@ -44,6 +46,7 @@ public class bl_NetworkGun : MonoBehaviour
     {
         SetupAudio();
         Root = transform.root;
+        photonView = Root.GetComponent<PhotonView>();
     }
 
     /// <summary>
@@ -93,7 +96,9 @@ public class bl_NetworkGun : MonoBehaviour
             m_BulletData.isNetwork = true;
 
             newBullet.GetComponent<bl_ProjectileBase>().InitProjectile(m_BulletData);
-            PlayLocalFireAudio();
+            //PlayLocalFireAudio();
+
+            photonView.RPC("PlayLocalFireAudio", RpcTarget.All);
         }
     }
 
@@ -185,6 +190,7 @@ public class bl_NetworkGun : MonoBehaviour
     /// <summary>
     /// 
     /// </summary>
+    [PunRPC]
     public void PlayLocalFireAudio()
     {
         Source.clip = LocalGun.FireAudioClip;
