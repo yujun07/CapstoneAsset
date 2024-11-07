@@ -56,7 +56,8 @@ public class bl_Recoil : bl_RecoilBase
 
         if (GunManager.CurrentGun != null)
         {
-            if (GunManager.CurrentGun.isFiring || GunManager.CurrentGun.isBursting && GunManager.CurrentGun.WeaponType != GunType.Knife)
+            Debug.Log(GunManager.CurrentGun.isFiring);
+            if (GunManager.CurrentGun.isFiring && GunManager.CurrentGun.WeaponType != GunType.Knife)
             {
                 if (AutomaticallyComeBack)
                 {
