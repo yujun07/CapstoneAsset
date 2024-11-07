@@ -187,7 +187,7 @@ public class bl_NetworkGun : MonoBehaviour
     /// </summary>
     public void PlayLocalFireAudio()
     {
-        Source.clip = LocalGun.FireSound;
+        Source.clip = LocalGun.FireAudioClip;
         Source.spread = Random.Range(1.0f, 1.5f);
         Source.Play();
     }
