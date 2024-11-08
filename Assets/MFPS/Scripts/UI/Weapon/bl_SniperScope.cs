@@ -103,7 +103,11 @@ public class bl_SniperScope : bl_SniperScopeBase
                       foreach (GameObject go in OnScopeDisable)
                       {
                           if (go == null) continue;
-                          go.SetActive(false);
+
+                          foreach (Renderer renderer in go.GetComponentsInChildren<Renderer>())
+                          {
+                              renderer.enabled = false;
+                          }
                       }
                   });
 
@@ -137,9 +141,12 @@ public class bl_SniperScope : bl_SniperScopeBase
 #if MFPSTPV
                            if (bl_CameraViewSettings.IsThirdPerson()) continue;
 #endif
-                           go.SetActive(true);
+                           //go.SetActive(true);
+                           foreach (Renderer renderer in go.GetComponentsInChildren<Renderer>())
+                           {
+                               renderer.enabled = true;
+                           }
                        }
-
                    });
                 m_gun.PlayerReferences.cameraMotion.SetActiveBreathing(false);
             }
@@ -148,8 +155,7 @@ public class bl_SniperScope : bl_SniperScopeBase
         if (ShowDistance && DistanceText)
         {
             DistanceText.text = m_dist.ToString("00") + "<size=10>m</size>";
-        }
-        
+        }       
     }
 
     /// <summary>

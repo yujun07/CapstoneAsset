@@ -77,15 +77,15 @@ MonoBehaviour:
   highLightColor: {r: 0.44827604, g: 0, b: 1, a: 1}
   AllScenes:
   - ShowName: Xylaris
-    m_Scene: {fileID: 102900000, guid: de7e89cacf071b349b930dd2f0a30089, type: 3}
-    RealSceneName: DarkCity
-    Preview: {fileID: 21300000, guid: 6566c02619a33c04b83af91ef6aa5026, type: 3}
+    m_Scene: {fileID: 102900000, guid: 85dfb5ec6449e394798aa55e3c9f9d56, type: 3}
+    RealSceneName: SmallMap
+    Preview: {fileID: 21300000, guid: 9c0002cebbe8ad749abb89f20b1267dc, type: 3}
     NoAllowedGameModes: 02000000
   AllWeapons:
-  - Name: Rifle
+  - Name: MP5A7
     Type: 1
     Active: 1
-    Damage: 25
+    Damage: 20
     FireRate: 0.09
     ReloadTime: 2
     Range: 500
@@ -99,10 +99,10 @@ MonoBehaviour:
       NoAllowedCoins: 
     PickUpPrefab: {fileID: 114276421530720698, guid: 24d483153274cb044b6356f4faf914ee, type: 3}
     GunIcon: {fileID: 21300000, guid: 59c560ab0d189a94ebc9a73b29d258fc, type: 3}
-  - Name: Pistol
+  - Name: P1911
     Type: 3
     Active: 1
-    Damage: 25
+    Damage: 15
     FireRate: 0.25
     ReloadTime: 1.5
     Range: 300
@@ -150,10 +150,10 @@ MonoBehaviour:
       NoAllowedCoins: 
     PickUpPrefab: {fileID: 114503052674967646, guid: c9fa96b788fed1e49b45acc2aedb0823, type: 3}
     GunIcon: {fileID: 21300000, guid: 5888e24ba146f2141b5c01400fd2c24c, type: 3}
-  - Name: Sniper
+  - Name: SSG_69
     Type: 2
     Active: 1
-    Damage: 70
+    Damage: 80
     FireRate: 1.8
     ReloadTime: 2.5
     Range: 700
@@ -286,10 +286,10 @@ MonoBehaviour:
       NoAllowedCoins: 
     PickUpPrefab: {fileID: 571094862385853314, guid: e0d0c543b627e12489b70dc16ede9a94, type: 3}
     GunIcon: {fileID: 21300000, guid: dc58ba34173fc4047a1559157ba149cb, type: 3}
-  - Name: SniperRifle3
+  - Name: AWM
     Type: 2
     Active: 1
-    Damage: 95
+    Damage: 100
     FireRate: 1.8
     ReloadTime: 2.4
     Range: 700
@@ -303,7 +303,7 @@ MonoBehaviour:
       NoAllowedCoins: 
     PickUpPrefab: {fileID: 5387681782929715886, guid: 4e1efbb717d21e146a46accb9e0b3ffe, type: 3}
     GunIcon: {fileID: 21300000, guid: 363dfbabd51f93e4eb349f82807ef873, type: 3}
-  - Name: SMG5
+  - Name: UMP9
     Type: 1
     Active: 1
     Damage: 22
@@ -337,7 +337,7 @@ MonoBehaviour:
       NoAllowedCoins: 
     PickUpPrefab: {fileID: 3542289004589209536, guid: 329407af067d01e499f7130e556b4fde, type: 3}
     GunIcon: {fileID: 21300000, guid: ac32c8c179d99f842a646cc136c9f627, type: 3}
-  - Name: Double Barrel
+  - Name: Sawed-off
     Type: 0
     Active: 1
     Damage: 75
@@ -354,10 +354,10 @@ MonoBehaviour:
       NoAllowedCoins: 
     PickUpPrefab: {fileID: 4075617611141377299, guid: dc5103d94a582df4f80d88a09cc9a9d0, type: 3}
     GunIcon: {fileID: 21300000, guid: 47b2fe581fd3b5947951585fecf7c864, type: 3}
-  - Name: Pistol5
+  - Name: R45
     Type: 3
     Active: 1
-    Damage: 50
+    Damage: 40
     FireRate: 1
     ReloadTime: 4.1
     Range: 500
@@ -371,13 +371,13 @@ MonoBehaviour:
       NoAllowedCoins: 
     PickUpPrefab: {fileID: 8109853360542292616, guid: 54cebfef418a8554fae6e66659d9aebd, type: 3}
     GunIcon: {fileID: 21300000, guid: 8ac4856d4310a254e946e00bb503c2fb, type: 3}
-  - Name: SniperRifle4
+  - Name: M6 Lynx
     Type: 2
     Active: 1
-    Damage: 100
+    Damage: 95
     FireRate: 1
     ReloadTime: 2.5
-    Range: 800
+    Range: 700
     Accuracy: 5
     Weight: 3.1
     Unlockability:
@@ -388,10 +388,10 @@ MonoBehaviour:
       NoAllowedCoins: 
     PickUpPrefab: {fileID: 3149708154107481181, guid: 51b1439bd38a2804981cc8b294c12381, type: 3}
     GunIcon: {fileID: 21300000, guid: 1a9f16971719a194f85a25fe430bd626, type: 3}
-  - Name: Rifle7
+  - Name: AK47
     Type: 1
     Active: 1
-    Damage: 33
+    Damage: 35
     FireRate: 0.12
     ReloadTime: 2.6
     Range: 600
@@ -405,7 +405,7 @@ MonoBehaviour:
       NoAllowedCoins: 
     PickUpPrefab: {fileID: 6159360053418752609, guid: b89c24d327efd494b9b6be6bcc82fdeb, type: 3}
     GunIcon: {fileID: 21300000, guid: d4e0a130515a7e545ae61a93eaf80549, type: 3}
-  - Name: LMG
+  - Name: M249
     Type: 1
     Active: 1
     Damage: 25

@@ -57,7 +57,6 @@ public class bl_Gun : bl_GunBase
     public float spread = 0.0f;             // current spread of the gun
     public float decreaseSpreadPerSec = 0.5f;// amount of accuracy regained per frame when the gun isn't being fired 
     [HideInInspector] public bool isReloading = false;       // am I in the process of reloading
-    [HideInInspector] public bool isBursting = false;
     // Recoil
     public float RecoilAmount = 5.0f;
     public float RecoilSpeed = 2;
@@ -69,7 +68,6 @@ public class bl_Gun : bl_GunBase
     public AudioClip ReloadSound2 = null;
     public AudioClip ReloadSound3 = null;
     public AudioSource DelaySource = null;
-    [HideInInspector] public AudioClip defaultFireSound;
     //cached player components
     public Renderer[] weaponRenders = null;
     public bl_PlayerSettings playerSettings;
@@ -181,6 +179,7 @@ public class bl_Gun : bl_GunBase
     public bool canBeTakenWhenIsEmpty = true;
     private bool alreadyKnife = false;
     private AudioSource Source;
+    private AudioClip defaultFireSound;
     private Camera WeaponCamera;
     private bool inReloadMode = false;
     private AmmunitionType AmmoType = AmmunitionType.Bullets;
@@ -487,7 +486,7 @@ public class bl_Gun : bl_GunBase
                 }
                 else
                 {
-                    if (fireDown && CanFire)
+                    if (fireDown && CanFire && WeaponType != GunType.Burst)
                     {
                         isFiring = true;
                         CancelInvoke(nameof(CancelFiring));
@@ -648,7 +647,7 @@ public class bl_Gun : bl_GunBase
                     ShotgunFire();
                     break;
                 case GunType.Burst:
-                    if (!isBursting) { StartCoroutine(BurstFire()); }
+                    StartCoroutine(BurstFire());
                     break;
                 case GunType.Grenade:
                     if (!grenadeFired) { GrenadeFire(); }
@@ -810,12 +809,14 @@ public class bl_Gun : bl_GunBase
             nextFireTime = Time.time - Time.deltaTime;
 
         int shots = Mathf.Min(roundsPerBurst, bulletsLeft);
+
         // Keep firing until we used up the fire time
         while (nextFireTime < Time.time)
         {
             while (shotCounter < shots)
             {
-                isBursting = true;
+                isFiring = true;
+                CanFire = false;
                 FireOneShot();
                 shotCounter++;
                 OnFireCommons();
@@ -836,7 +837,8 @@ public class bl_Gun : bl_GunBase
                 Reload();
             }
         }
-        isBursting = false;
+        isFiring = false;
+        CanFire = true;
     }
 
     /// <summary>
@@ -1818,7 +1820,7 @@ public class bl_Gun : bl_GunBase
         get
         {
             bool can = false;
-            if (bulletsLeft < BulletsPerMagazine && m_remainingClips > 0 && controller.State != PlayerState.Running && !isReloading)
+            if (bulletsLeft < BulletsPerMagazine && m_remainingClips > 0 && !isReloading) //controller.State != PlayerState.Running
             {
                 can = true;
             }

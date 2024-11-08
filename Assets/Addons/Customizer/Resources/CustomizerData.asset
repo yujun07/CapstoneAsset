@@ -668,5 +668,5 @@ MonoBehaviour:
       NoAllowedCoins: 
     Description: 
     m_sprite: {fileID: 0}
-  returnToLobbyAfterSave: 1
+  returnToLobbyAfterSave: 0
   OpenedWeapon: 0
