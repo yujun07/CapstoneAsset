@@ -98,7 +98,8 @@ public class bl_NetworkGun : MonoBehaviour
             newBullet.GetComponent<bl_ProjectileBase>().InitProjectile(m_BulletData);
             //PlayLocalFireAudio();
 
-            photonView.RPC("PlayLocalFireAudio", RpcTarget.All);
+            string fireSoundName = LocalGun.FireSoundName;
+            photonView.RPC(nameof(PlayLocalFireAudio), RpcTarget.All, fireSoundName);
         }
     }
 
@@ -191,11 +192,25 @@ public class bl_NetworkGun : MonoBehaviour
     /// 
     /// </summary>
     [PunRPC]
-    public void PlayLocalFireAudio()
+    public void PlayLocalFireAudio(string soundName)
     {
-        Source.clip = LocalGun.FireAudioClip;
-        Source.spread = Random.Range(1.0f, 1.5f);
-        Source.Play();
+        //Source.clip = LocalGun.FireAudioClip;
+        //Source.spread = Random.Range(1.0f, 1.5f);
+        //Source.Play();
+        if (!string.IsNullOrEmpty(soundName))
+        {
+            AudioClip syncedSound = Resources.Load<AudioClip>($"Sounds/{soundName}");
+            if (syncedSound != null)
+            {
+                Source.clip = syncedSound;
+                Source.spread = Random.Range(1.0f, 1.5f);
+                Source.Play();
+            }
+            else
+            {
+                Debug.LogWarning($"AudioClip '{soundName}' could not be found in Resources/Sounds/");
+            }
+        }
     }
 
     /// <summary>
