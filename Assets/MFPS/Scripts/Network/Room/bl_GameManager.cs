@@ -180,7 +180,6 @@ public class bl_GameManager : bl_PhotonHelper, IInRoomCallbacks, IConnectionCall
         {
             Debug.LogWarning("No Game Mode has been assigned yet!");
         }
-        PhotonNetwork.AutomaticallySyncScene = true;
     }
 
     /// <summary>
