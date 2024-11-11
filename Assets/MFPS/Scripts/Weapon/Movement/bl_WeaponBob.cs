@@ -141,7 +141,7 @@ public class bl_WeaponBob : bl_WeaponBobBase
             eulerX = settings.RunEulerXAmount;
         }
 
-        if (motor.State != PlayerState.Running && motor.VelocityMagnitude < 0.1f || !bl_RoomMenu.Instance.isCursorLocked)
+        if (motor.State != PlayerState.Running && motor.VelocityMagnitude < 0.1f)//|| !bl_RoomMenu.Instance.isCursorLocked
         {
             bobbingSpeed = tempIdleSpeed;
             BobbingAmount = settings.WalkOscillationAmount * 0.1f;
