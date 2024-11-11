@@ -26,11 +26,14 @@ public class WeaponSpawner : bl_MonoBehaviour
     {
         if (!bl_PhotonNetwork.IsConnected) return;
         base.OnEnable();
-        foreach (Transform spawnPoint in spawnPoints)
+        if (PhotonNetwork.IsMasterClient)
         {
-            for (int i = 0; i < numberOfGunsToSpawn; i++)
+            foreach (Transform spawnPoint in spawnPoints)
             {
-                RandomGunSpawn(spawnPoint);     
+                for (int i = 0; i < numberOfGunsToSpawn; i++)
+                {
+                    RandomGunSpawn(spawnPoint);
+                }
             }
         }
     }
