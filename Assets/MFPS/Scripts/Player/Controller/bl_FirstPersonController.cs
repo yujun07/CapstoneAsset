@@ -1157,7 +1157,28 @@ public class bl_FirstPersonController : bl_FirstPersonControllerBase
         bool wasControllable = isControlable;
         isControlable = false;
 
-        overrideNextLandEvent = true;
+
+
+
+
+
+
+
+
+        JumpInmune = true;
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         jumpPressed = false;
 
@@ -1165,6 +1186,33 @@ public class bl_FirstPersonController : bl_FirstPersonControllerBase
 
         // get the position to automatically translate the player to start climbing/down-climbing
         Vector3 startPos = ladder.GetAttachPosition(other, m_CharacterController.height);
+
+
+
+
+
+
+
+
+
+
+        overrideNextLandEvent = true;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // move the player to the start position
         StartCoroutine(MoveTo(startPos, () =>

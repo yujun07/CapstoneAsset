@@ -30362,8 +30362,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u200B"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a1ea6c01ff3f70f459119c05a8bb736a, type: 2}
-  m_sharedMaterial: {fileID: 749941184145533314, guid: a1ea6c01ff3f70f459119c05a8bb736a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9a88bdf4e0577c54095e97f187197340, type: 2}
+  m_sharedMaterial: {fileID: -4344200340605112947, guid: 9a88bdf4e0577c54095e97f187197340, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -36618,8 +36618,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: SEND
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a1ea6c01ff3f70f459119c05a8bb736a, type: 2}
-  m_sharedMaterial: {fileID: 749941184145533314, guid: a1ea6c01ff3f70f459119c05a8bb736a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9a88bdf4e0577c54095e97f187197340, type: 2}
+  m_sharedMaterial: {fileID: -4344200340605112947, guid: 9a88bdf4e0577c54095e97f187197340, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -60395,8 +60395,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Chat text here
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a1ea6c01ff3f70f459119c05a8bb736a, type: 2}
-  m_sharedMaterial: {fileID: 749941184145533314, guid: a1ea6c01ff3f70f459119c05a8bb736a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9a88bdf4e0577c54095e97f187197340, type: 2}
+  m_sharedMaterial: {fileID: -4344200340605112947, guid: 9a88bdf4e0577c54095e97f187197340, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -60420,8 +60420,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 10
-  m_fontSizeBase: 10
+  m_fontSize: 9
+  m_fontSizeBase: 9
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -60430,9 +60430,9 @@ MonoBehaviour:
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 1024
   m_textAlignment: 65535
-  m_characterSpacing: -7
+  m_characterSpacing: 5.69
   m_wordSpacing: 0
-  m_lineSpacing: 35
+  m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: -50
   m_charWidthMaxAdj: 0
@@ -60973,8 +60973,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Chat here
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a1ea6c01ff3f70f459119c05a8bb736a, type: 2}
-  m_sharedMaterial: {fileID: 749941184145533314, guid: a1ea6c01ff3f70f459119c05a8bb736a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9a88bdf4e0577c54095e97f187197340, type: 2}
+  m_sharedMaterial: {fileID: -4344200340605112947, guid: 9a88bdf4e0577c54095e97f187197340, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
