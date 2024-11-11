@@ -78,14 +78,15 @@ namespace MFPS.Addon.Customizer
                 }
             }
 
-            if (OverrideFireSound)
-            {
-                targetWeapon.FireAudioClip = FireSound;
-                if (FireSound != null)
-                {
-                    targetWeapon.FireSoundName = FireSound.name; // 사운드 이름 저장
-                }
-            }
+            //if (OverrideFireSound)
+            //{
+            //    targetWeapon.FireAudioClip = FireSound;
+            //    if (FireSound != null)
+            //    {
+            //        targetWeapon.FireSoundName = FireSound.name; // 사운드 이름 저장
+            //    }
+            //}
+            if (OverrideFireSound) targetWeapon.FireAudioClip = FireSound;
             targetWeapon.BulletsPerMagazine = ExtraBullets;
             targetWeapon.Zoom = extraZoom;
             targetWeapon.Damage = extraDamage; // modify only the extra damage, that means if you set 0 of extra damage, only the gun base/default damage is gonna be applied.
