@@ -57,7 +57,8 @@ public class bl_GrenadeLauncher : bl_CustomGunBase
         TPWeapon.m_BulletData.Speed = TPWeapon.LocalGun.bulletSpeed;
         TPWeapon.m_BulletData.Position = TPWeapon.transform.position;
         glp.InitProjectile(TPWeapon.m_BulletData);
-        TPWeapon.PlayLocalFireAudio();
+        string fireSoundName = FPWeapon.FireSoundName;
+        TPWeapon.PlayLocalFireAudio(fireSoundName);
     }
 
     /// <summary>
