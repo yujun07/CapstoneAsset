@@ -432,7 +432,7 @@ GameObject:
   - component: {fileID: -5948239972349511844}
   m_Layer: 0
   m_Name: SniperRifle3 [PickUp]
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -905,7 +905,7 @@ GameObject:
   - component: {fileID: 3914022395332075174}
   m_Layer: 0
   m_Name: Grenade Gun3 [PickUp]
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
