@@ -233,7 +233,7 @@ public class bl_FirstPersonController : bl_FirstPersonControllerBase
 
         GroundDetection();
         //if player focus is in game
-        if (bl_RoomMenu.Instance.isCursorLocked && !bl_GameData.Instance.isChating)
+        if (!bl_RoomMenu.Instance.isPaused && !bl_GameData.Instance.isChating)//bl_RoomMenu.Instance.isCursorLocked &&
         {
             //determine the player speed
             GetInput(out float s);
@@ -575,7 +575,8 @@ public class bl_FirstPersonController : bl_FirstPersonControllerBase
         slideForce = slideSpeed;//slide force will be continually decreasing
         speed = slideSpeed;
         //playerReferences.gunManager.HeadAnimator.Play("slide-start", 0, 0); // if you want to use an animation instead
-        mouseLook.SetTiltAngle(slideCameraTiltAngle);
+        if(bl_RoomMenu.Instance.isCursorLocked) mouseLook.SetTiltAngle(slideCameraTiltAngle);
+        
         if (slideSound != null)
         {
             m_AudioSource.clip = slideSound;

@@ -125,7 +125,7 @@ public class bl_GameInput
     {
         get
         {
-            if (!bl_RoomMenu.Instance.isCursorLocked || bl_GameData.Instance.isChating) return 0;
+            if (bl_GameData.Instance.isChating) return 0; //!bl_RoomMenu.Instance.isCursorLocked || 
 
             return bl_Input.VerticalAxis;
         }
@@ -135,7 +135,7 @@ public class bl_GameInput
     {
         get
         {
-            if (!bl_RoomMenu.Instance.isCursorLocked || bl_GameData.Instance.isChating) return 0;
+            if (bl_GameData.Instance.isChating) return 0; //!bl_RoomMenu.Instance.isCursorLocked || 
 
             return bl_Input.HorizontalAxis;
         }
@@ -173,24 +173,11 @@ public class bl_GameInput
         else { return Input.GetKeyUp(key); }
     }
 
-    public static bool GetButton(string key, GameInputType inputType, bool overrideBlockers = false)
-    {
-
-        if (!overrideBlockers)
-        {
-            if (!bl_RoomMenu.Instance.isCursorLocked || bl_GameData.Instance.isChating) return false;
-        }
-
-        if (inputType == GameInputType.Hold) { return Input.GetKey(key); }
-        else if (inputType == GameInputType.Down) { return Input.GetKeyDown(key); }
-        else { return Input.GetKeyUp(key); }
-    }
-
     public static bool GetInputManager(string key, GameInputType inputType, bool overrideBlockers = false)
     {
         if (!overrideBlockers)
         {
-            if (!bl_RoomMenu.Instance.isCursorLocked || bl_GameData.Instance.isChating) return false;
+            if (bl_RoomMenu.Instance.isPaused || bl_GameData.Instance.isChating) return false;//!bl_RoomMenu.Instance.isCursorLocked || 
         }
         if (inputType == GameInputType.Hold) { return bl_Input.isButton(key); }
         else if (inputType == GameInputType.Down) { return bl_Input.isButtonDown(key); }

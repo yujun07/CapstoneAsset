@@ -155,7 +155,6 @@ public class bl_MiniMap : bl_MonoBehaviour
     public bool DetectUserInputs { get; set; } = true;
     private bl_MiniMapPlane miniMapPlane;
     private List<bl_MiniMapItem> miniMapItems = new List<bl_MiniMapItem>();
-
     /// <summary>
     /// 
     /// </summary>
@@ -413,7 +412,7 @@ public class bl_MiniMap : bl_MonoBehaviour
     {
         if (!DetectUserInputs || bl_GameData.Instance.isChating) return;
         // If the minimap button is pressed then toggle the map state.
-        if (Input.GetKeyDown(ToogleKey))
+        if (Input.GetKeyDown(ToogleKey) && !bl_RoomMenu.Instance.isPaused)
         {
             ToggleSize();
         }
