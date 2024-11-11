@@ -47,7 +47,7 @@ public class bl_NetworkGun : MonoBehaviour
     {
         SetupAudio();
         Root = transform.root;
-        photonView = Root.GetComponent<PhotonView>();
+        photonView = GetComponent<PhotonView>();
     }
 
     /// <summary>
