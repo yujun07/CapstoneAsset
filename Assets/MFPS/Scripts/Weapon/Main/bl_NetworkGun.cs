@@ -3,6 +3,7 @@ using UnityEngine;
 using Photon.Pun;
 
 [RequireComponent(typeof(AudioSource))]
+[RequireComponent(typeof(PhotonView))]
 public class bl_NetworkGun : MonoBehaviour
 {
     #region Public members
