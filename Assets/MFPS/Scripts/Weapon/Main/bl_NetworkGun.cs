@@ -3,7 +3,6 @@ using UnityEngine;
 using Photon.Pun;
 
 [RequireComponent(typeof(AudioSource))]
-[RequireComponent(typeof(PhotonView))]
 public class bl_NetworkGun : MonoBehaviour
 {
     #region Public members
@@ -32,7 +31,7 @@ public class bl_NetworkGun : MonoBehaviour
     #region Private members
     private AudioSource Source;
     private int WeaponID = -1;
-    private PhotonView photonView;
+    //private PhotonView photonView;
     [System.NonSerialized]
     public BulletData m_BulletData = new BulletData();
     Vector3 bulletPosition = Vector3.zero;
@@ -47,7 +46,7 @@ public class bl_NetworkGun : MonoBehaviour
     {
         SetupAudio();
         Root = transform.root;
-        photonView = GetComponent<PhotonView>();
+        //photonView = GetComponent<PhotonView>();
     }
 
     /// <summary>
@@ -97,10 +96,10 @@ public class bl_NetworkGun : MonoBehaviour
             m_BulletData.isNetwork = true;
 
             newBullet.GetComponent<bl_ProjectileBase>().InitProjectile(m_BulletData);
-            //PlayLocalFireAudio();
+            PlayLocalFireAudio();
 
-            string fireSoundName = LocalGun.FireSoundName;
-            photonView.RPC(nameof(PlayLocalFireAudio), RpcTarget.All, fireSoundName);
+            //string fireSoundName = LocalGun.FireSoundName;
+            //photonView.RPC(nameof(PlayLocalFireAudio), RpcTarget.Others, fireSoundName);
         }
     }
 
@@ -192,26 +191,25 @@ public class bl_NetworkGun : MonoBehaviour
     /// <summary>
     /// 
     /// </summary>
-    [PunRPC]
-    public void PlayLocalFireAudio(string soundName)
+    public void PlayLocalFireAudio()//string soundName
     {
-        //Source.clip = LocalGun.FireAudioClip;
-        //Source.spread = Random.Range(1.0f, 1.5f);
-        //Source.Play();
-        if (!string.IsNullOrEmpty(soundName))
-        {
-            AudioClip syncedSound = Resources.Load<AudioClip>($"Sounds/{soundName}");
-            if (syncedSound != null)
-            {
-                Source.clip = syncedSound;
-                Source.spread = Random.Range(1.0f, 1.5f);
-                Source.Play();
-            }
-            else
-            {
-                Debug.LogWarning($"AudioClip '{soundName}' could not be found in Resources/Sounds/");
-            }
-        }
+        Source.clip = LocalGun.FireAudioClip;
+        Source.spread = Random.Range(1.0f, 1.5f);
+        Source.Play();
+        //if (!string.IsNullOrEmpty(soundName))
+        //{
+        //    AudioClip syncedSound = Resources.Load<AudioClip>($"Sounds/{soundName}");
+        //    if (syncedSound != null)
+        //    {
+        //        Source.clip = syncedSound;
+        //        Source.spread = Random.Range(1.0f, 1.5f);
+        //        Source.Play();
+        //    }
+        //    else
+        //    {
+        //        Debug.LogWarning($"AudioClip '{soundName}' could not be found in Resources/Sounds/");
+        //    }
+        //}
     }
 
     /// <summary>
