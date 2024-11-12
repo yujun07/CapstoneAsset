@@ -26,7 +26,7 @@ public class WeaponSpawner : bl_MonoBehaviour
     {
         if (!bl_PhotonNetwork.IsConnected) return;
         base.OnEnable();
-        if (bl_GameManager.Instance.GameMatchState == MatchState.Starting)
+        if (bl_PhotonNetwork.IsMasterClient)//bl_GameManager.Instance.GameMatchState == MatchState.Starting
         {
             foreach (Transform spawnPoint in spawnPoints)
             {
