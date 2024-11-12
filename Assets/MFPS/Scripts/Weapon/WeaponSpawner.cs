@@ -30,7 +30,7 @@ public class WeaponSpawner : bl_MonoBehaviour
         {
             foreach (Transform spawnPoint in spawnPoints)
             {
-                for (int i = 0; i <= numberOfGunsToSpawn; i++)
+                for (int i = 0; i < numberOfGunsToSpawn; i++)
                 {
                     RandomGunSpawn(spawnPoint);
                 }
