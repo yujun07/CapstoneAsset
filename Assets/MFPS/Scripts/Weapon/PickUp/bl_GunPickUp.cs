@@ -73,6 +73,8 @@ public class bl_GunPickUp : bl_GunPickUpBase, IRayDetectable
                 }
             }
         }
+
+        Destroy(gameObject);
     }
 
     /// <summary>
