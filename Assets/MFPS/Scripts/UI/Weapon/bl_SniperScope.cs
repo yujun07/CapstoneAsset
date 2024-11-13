@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Collections;
+using MFPS.Runtime.Level;
 
 public class bl_SniperScope : bl_SniperScopeBase
 {
@@ -23,7 +24,7 @@ public class bl_SniperScope : bl_SniperScopeBase
     private float m_dist = 0.0f;
     private Text DistanceText;
     private bool returnedAim = true;
-    private bool aiming = false;
+    public bool aiming = false;
     private bool isHoldBreath = false;
     private bool canHoldBreath = true;
     private float HoldBreathGuage;
@@ -77,8 +78,8 @@ public class bl_SniperScope : bl_SniperScopeBase
             {
                 isHoldBreath = true;
                 m_gun.PlayerReferences.cameraMotion.SetActiveBreathing(false);
-                StopCoroutine("DecreaseHoldBreathGauge");
-                StartCoroutine("DecreaseHoldBreathGauge");
+                StopCoroutine(nameof(DecreaseHoldBreathGauge));
+                StartCoroutine(nameof(DecreaseHoldBreathGauge));
             }
         }
     }
@@ -97,58 +98,14 @@ public class bl_SniperScope : bl_SniperScopeBase
 
             if (!aiming)
             {
-                returnedAim = false;
-                bl_ScopeUIBase.Instance?.Crossfade(true, transitionDuration, fadeInDelay, null, () =>
-                  {
-                      foreach (GameObject go in OnScopeDisable)
-                      {
-                          if (go == null) continue;
-
-                          foreach (Renderer renderer in go.GetComponentsInChildren<Renderer>())
-                          {
-                              renderer.enabled = false;
-                          }
-                      }
-                  });
-
-                // Active breathing effect
-                if (breathingAmplitude > 0)
-                {
-                    m_gun.PlayerReferences.cameraMotion.SetActiveBreathing(true, breathingAmplitude);
-                }
-                
-
-                aiming = true;
+                ScopeZoomIn();
             }
         }
         else
         {
             if (aiming)
             {
-                float inverse = bl_MathUtility.InverseLerp(m_gun.GetDefaultPosition(), m_gun.AimPosition, m_gun.transform.localPosition);
-                bool wasFullAiming = inverse >= 0.78f;
-                bl_ScopeUIBase.Instance?.Crossfade(false, transitionDuration, 0, () =>
-                   {
-                       if (!returnedAim && m_gun.Info != null)
-                       {
-                           if(wasFullAiming) m_gun.SetToAim();
-                           returnedAim = true;
-                       }
-                      
-                       foreach (GameObject go in OnScopeDisable)
-                       {
-                           if (go == null) continue;
-#if MFPSTPV
-                           if (bl_CameraViewSettings.IsThirdPerson()) continue;
-#endif
-                           //go.SetActive(true);
-                           foreach (Renderer renderer in go.GetComponentsInChildren<Renderer>())
-                           {
-                               renderer.enabled = true;
-                           }
-                       }
-                   });
-                m_gun.PlayerReferences.cameraMotion.SetActiveBreathing(false);
+                ScopeZoomOut();
             }
             aiming = false;
         }
@@ -176,7 +133,59 @@ public class bl_SniperScope : bl_SniperScopeBase
             m_dist = 0.0f;
         }
     }
+    public void ScopeZoomIn()
+    {
+        returnedAim = false;
+        bl_ScopeUIBase.Instance?.Crossfade(true, transitionDuration, fadeInDelay, null, () =>
+        {
+            foreach (GameObject go in OnScopeDisable)
+            {
+                if (go == null) continue;
 
+                foreach (Renderer renderer in go.GetComponentsInChildren<Renderer>())
+                {
+                    renderer.enabled = false;
+                }
+            }
+        });
+
+        // Active breathing effect
+        if (breathingAmplitude > 0)
+        {
+            m_gun.PlayerReferences.cameraMotion.SetActiveBreathing(true, breathingAmplitude);
+        }
+
+
+        aiming = true;
+    }
+
+    public void ScopeZoomOut()
+    {
+        float inverse = bl_MathUtility.InverseLerp(m_gun.GetDefaultPosition(), m_gun.AimPosition, m_gun.transform.localPosition);
+        bool wasFullAiming = inverse >= 0.78f;
+        bl_ScopeUIBase.Instance?.Crossfade(false, transitionDuration, 0, () =>
+        {
+            if (!returnedAim && m_gun.Info != null)
+            {
+                if (wasFullAiming) m_gun.SetToAim();
+                returnedAim = true;
+            }
+
+            foreach (GameObject go in OnScopeDisable)
+            {
+                if (go == null) continue;
+#if MFPSTPV
+                           if (bl_CameraViewSettings.IsThirdPerson()) continue;
+#endif
+                //go.SetActive(true);
+                foreach (Renderer renderer in go.GetComponentsInChildren<Renderer>())
+                {
+                    renderer.enabled = true;
+                }
+            }
+        });
+        m_gun.PlayerReferences.cameraMotion.SetActiveBreathing(false);
+    }
     private IEnumerator DecreaseHoldBreathGauge()
     {
         while (HoldBreathGuage > 0 && isHoldBreath)

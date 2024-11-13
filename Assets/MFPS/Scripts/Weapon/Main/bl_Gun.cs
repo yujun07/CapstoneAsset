@@ -68,6 +68,7 @@ public class bl_Gun : bl_GunBase
     public AudioClip ReloadSound2 = null;
     public AudioClip ReloadSound3 = null;
     public AudioSource DelaySource = null;
+    //public string FireSoundName = ""; // 현재 사운드 클립의 이름 저장
     //cached player components
     public Renderer[] weaponRenders = null;
     public bl_PlayerSettings playerSettings;

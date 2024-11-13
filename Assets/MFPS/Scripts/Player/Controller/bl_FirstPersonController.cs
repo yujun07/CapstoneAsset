@@ -233,7 +233,7 @@ public class bl_FirstPersonController : bl_FirstPersonControllerBase
 
         GroundDetection();
         //if player focus is in game
-        if (bl_RoomMenu.Instance.isCursorLocked && !bl_GameData.Instance.isChating)
+        if (!bl_RoomMenu.Instance.isPaused && !bl_GameData.Instance.isChating)//bl_RoomMenu.Instance.isCursorLocked &&
         {
             //determine the player speed
             GetInput(out float s);
@@ -575,7 +575,8 @@ public class bl_FirstPersonController : bl_FirstPersonControllerBase
         slideForce = slideSpeed;//slide force will be continually decreasing
         speed = slideSpeed;
         //playerReferences.gunManager.HeadAnimator.Play("slide-start", 0, 0); // if you want to use an animation instead
-        mouseLook.SetTiltAngle(slideCameraTiltAngle);
+        if(bl_RoomMenu.Instance.isCursorLocked) mouseLook.SetTiltAngle(slideCameraTiltAngle);
+        
         if (slideSound != null)
         {
             m_AudioSource.clip = slideSound;
@@ -694,7 +695,7 @@ public class bl_FirstPersonController : bl_FirstPersonControllerBase
                 m_Ladder.Exiting = true;
                 bool wasControllable = isControlable;
                 isControlable = false;
-
+                
                 StartCoroutine(MoveTo(m_Ladder.GetNearestExitPosition(m_Transform), () =>
                 {
                     SetActiveClimbing(false);
@@ -1157,28 +1158,7 @@ public class bl_FirstPersonController : bl_FirstPersonControllerBase
         bool wasControllable = isControlable;
         isControlable = false;
 
-
-
-
-
-
-
-
-
-        JumpInmune = true;
-
-
-
-
-
-
-
-
-
-
-
-
-
+        overrideNextLandEvent = true;
 
         jumpPressed = false;
 
@@ -1186,33 +1166,6 @@ public class bl_FirstPersonController : bl_FirstPersonControllerBase
 
         // get the position to automatically translate the player to start climbing/down-climbing
         Vector3 startPos = ladder.GetAttachPosition(other, m_CharacterController.height);
-
-
-
-
-
-
-
-
-
-
-        overrideNextLandEvent = true;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         // move the player to the start position
         StartCoroutine(MoveTo(startPos, () =>

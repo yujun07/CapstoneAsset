@@ -59,7 +59,10 @@ public class bl_GunPickUp : bl_GunPickUpBase, IRayDetectable
     /// </summary>
     protected override void OnDestroy()
     {
+        Debug.Log($"Destroy : {gameObject.name}");
+
         base.OnDestroy();
+
         if (!localInsideTrigger) return;
 
         bl_PickUpUIBase.Instance?.Hide();
@@ -162,7 +165,11 @@ public class bl_GunPickUp : bl_GunPickUpBase, IRayDetectable
     /// </summary>
     public override void PickUp()
     {
-        if (!GetGameMode.GetGameModeInfo().allowedPickupWeapons) return;
+        if (!GetGameMode.GetGameModeInfo().allowedPickupWeapons)
+        {
+            Debug.Log("PickUp IF");
+            return;
+        }
 
         bl_GunPickUpManagerBase.Instance?.SendPickUp(new bl_GunPickUpManagerBase.PickUpData()
         {
@@ -173,6 +180,8 @@ public class bl_GunPickUp : bl_GunPickUpBase, IRayDetectable
 
         bl_PickUpUIBase.Instance?.Hide();
         onPickUp?.Invoke();
+
+        //Destroy(gameObject, 0.2f);
     }
 
     /// <summary>

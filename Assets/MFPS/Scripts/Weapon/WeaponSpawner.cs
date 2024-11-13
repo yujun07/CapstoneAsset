@@ -26,11 +26,14 @@ public class WeaponSpawner : bl_MonoBehaviour
     {
         if (!bl_PhotonNetwork.IsConnected) return;
         base.OnEnable();
-        foreach (Transform spawnPoint in spawnPoints)
+        if (bl_PhotonNetwork.IsMasterClient && bl_GameManager.Instance.GameMatchState == MatchState.Starting)
         {
-            for (int i = 0; i < numberOfGunsToSpawn; i++)
+            foreach (Transform spawnPoint in spawnPoints)
             {
-                RandomGunSpawn(spawnPoint);     
+                for (int i = 0; i < numberOfGunsToSpawn; i++)
+                {
+                    RandomGunSpawn(spawnPoint);
+                }
             }
         }
     }
@@ -44,7 +47,7 @@ public class WeaponSpawner : bl_MonoBehaviour
         int gunIndex = Random.Range(0, gunPrefabs.Length);
         GameObject selectedGunPrefab = gunPrefabs[gunIndex];
 
-        GameObject prefabObject = PhotonNetwork.Instantiate(PickUpGunsPath + selectedGunPrefab.name, spawnPoint.position, Quaternion.identity);
+        GameObject prefabObject = PhotonNetwork.InstantiateRoomObject(PickUpGunsPath + selectedGunPrefab.name, spawnPoint.position, Quaternion.identity);
         prefabObject.transform.SetParent(parentObject);
     }
 }

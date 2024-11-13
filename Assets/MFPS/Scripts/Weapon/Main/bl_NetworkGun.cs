@@ -1,6 +1,5 @@
 ﻿using MFPS.Audio;
 using UnityEngine;
-using Photon.Pun;
 
 [RequireComponent(typeof(AudioSource))]
 public class bl_NetworkGun : MonoBehaviour
@@ -31,7 +30,7 @@ public class bl_NetworkGun : MonoBehaviour
     #region Private members
     private AudioSource Source;
     private int WeaponID = -1;
-    private PhotonView photonView;
+    //private PhotonView photonView;
     [System.NonSerialized]
     public BulletData m_BulletData = new BulletData();
     Vector3 bulletPosition = Vector3.zero;
@@ -46,7 +45,7 @@ public class bl_NetworkGun : MonoBehaviour
     {
         SetupAudio();
         Root = transform.root;
-        photonView = Root.GetComponent<PhotonView>();
+        //photonView = GetComponent<PhotonView>();
     }
 
     /// <summary>
@@ -96,9 +95,10 @@ public class bl_NetworkGun : MonoBehaviour
             m_BulletData.isNetwork = true;
 
             newBullet.GetComponent<bl_ProjectileBase>().InitProjectile(m_BulletData);
-            //PlayLocalFireAudio();
+            PlayLocalFireAudio();
 
-            photonView.RPC("PlayLocalFireAudio", RpcTarget.All);
+            //string fireSoundName = LocalGun.FireSoundName;
+            //photonView.RPC(nameof(PlayLocalFireAudio), RpcTarget.Others, fireSoundName);
         }
     }
 
@@ -190,12 +190,25 @@ public class bl_NetworkGun : MonoBehaviour
     /// <summary>
     /// 
     /// </summary>
-    [PunRPC]
-    public void PlayLocalFireAudio()
+    public void PlayLocalFireAudio()//string soundName
     {
         Source.clip = LocalGun.FireAudioClip;
         Source.spread = Random.Range(1.0f, 1.5f);
         Source.Play();
+        //if (!string.IsNullOrEmpty(soundName))
+        //{
+        //    AudioClip syncedSound = Resources.Load<AudioClip>($"Sounds/{soundName}");
+        //    if (syncedSound != null)
+        //    {
+        //        Source.clip = syncedSound;
+        //        Source.spread = Random.Range(1.0f, 1.5f);
+        //        Source.Play();
+        //    }
+        //    else
+        //    {
+        //        Debug.LogWarning($"AudioClip '{soundName}' could not be found in Resources/Sounds/");
+        //    }
+        //}
     }
 
     /// <summary>
