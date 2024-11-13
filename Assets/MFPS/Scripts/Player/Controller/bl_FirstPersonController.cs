@@ -695,7 +695,7 @@ public class bl_FirstPersonController : bl_FirstPersonControllerBase
                 m_Ladder.Exiting = true;
                 bool wasControllable = isControlable;
                 isControlable = false;
-
+                
                 StartCoroutine(MoveTo(m_Ladder.GetNearestExitPosition(m_Transform), () =>
                 {
                     SetActiveClimbing(false);
