@@ -78,8 +78,8 @@ public class bl_SniperScope : bl_SniperScopeBase
             {
                 isHoldBreath = true;
                 m_gun.PlayerReferences.cameraMotion.SetActiveBreathing(false);
-                StopCoroutine("DecreaseHoldBreathGauge");
-                StartCoroutine("DecreaseHoldBreathGauge");
+                StopCoroutine(nameof(DecreaseHoldBreathGauge));
+                StartCoroutine(nameof(DecreaseHoldBreathGauge));
             }
         }
     }

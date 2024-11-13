@@ -1,6 +1,5 @@
 ﻿using MFPS.Audio;
 using UnityEngine;
-using Photon.Pun;
 
 [RequireComponent(typeof(AudioSource))]
 public class bl_NetworkGun : MonoBehaviour
