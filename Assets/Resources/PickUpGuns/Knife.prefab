@@ -53,7 +53,7 @@ MonoBehaviour:
   Ammunition:
     Bullets: 30
     Clips: 3
-  AutoDestroy: 1
+  AutoDestroy: 0
   m_DetectMode: 0
   PickupOnCollide: 1
   DestroyIn: 15
