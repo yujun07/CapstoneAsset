@@ -184,7 +184,7 @@ public class bl_GunPickUp : bl_GunPickUpBase, IRayDetectable
         bl_PickUpUIBase.Instance?.Hide();
         onPickUp?.Invoke();
 
-        Destroy(gameObject, 0.2f);
+        //Destroy(gameObject, 0.2f);
     }
 
     /// <summary>
