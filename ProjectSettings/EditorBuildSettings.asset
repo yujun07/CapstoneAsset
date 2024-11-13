@@ -14,10 +14,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Taeng/DarkCityTaeng.unity
     guid: 760aee24c8207430ba48ef10ff6872c2
-  - enabled: 0
+  - enabled: 1
     path: Assets/Map/ReversedAssets/City Builder Urban/URP/Scenes/DarkCity.unity
     guid: de7e89cacf071b349b930dd2f0a30089
-  - enabled: 1
+  - enabled: 0
     path: Assets/Map/ReversedAssets/City Builder Urban/URP/Scenes/SmallMap.unity
     guid: 85dfb5ec6449e394798aa55e3c9f9d56
   m_configObjects: {}
