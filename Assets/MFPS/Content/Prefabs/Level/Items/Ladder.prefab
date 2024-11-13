@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c508f28de00c2b469d0f56422581acd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hideWeapons: 1
+  hideWeapons: 0
   climbOffset: {x: 0, y: 0, z: -0.41}
   lookDirection: {x: 0, y: -1, z: 0}
   TopCollider: {fileID: 362367968264009566}

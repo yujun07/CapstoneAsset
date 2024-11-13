@@ -57,7 +57,7 @@ namespace MFPS.Runtime.Level
             topLimit = bottomLimit + transform.forward * relativeDis;
 
             Status = LadderStatus.Attaching;
-
+            
             if (hideWeapons)
             {
                 player.gunManager.BlockAllWeapons();
