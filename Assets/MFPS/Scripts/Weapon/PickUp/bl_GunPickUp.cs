@@ -63,10 +63,7 @@ public class bl_GunPickUp : bl_GunPickUpBase, IRayDetectable
 
         base.OnDestroy();
 
-        if (!localInsideTrigger)
-        {
-            return;
-        }
+        if (!localInsideTrigger) return;
 
         bl_PickUpUIBase.Instance?.Hide();
         if (localPlayerIn != null)
