@@ -9,15 +9,15 @@ EditorBuildSettings:
     path: Assets/MFPS/Scenes/MainMenu.unity
     guid: fcfe9637e4043474a98d431ae71e26c2
   - enabled: 1
-    path: Assets/Addons/Customizer/Content/Scene/Customizer.unity
+    path: Assets/MFPS/Addons/Customizer/Content/Scene/Customizer.unity
     guid: 6811d73c02697a645ae6bf049f9c79e1
   - enabled: 0
     path: Assets/Taeng/DarkCityTaeng.unity
     guid: 760aee24c8207430ba48ef10ff6872c2
   - enabled: 0
-    path: Assets/ReversedAssets/City Builder Urban/URP/Scenes/DarkCity.unity
+    path: Assets/Map/ReversedAssets/City Builder Urban/URP/Scenes/DarkCity.unity
     guid: de7e89cacf071b349b930dd2f0a30089
   - enabled: 1
-    path: Assets/ReversedAssets/City Builder Urban/URP/Scenes/SmallMap.unity
+    path: Assets/Map/ReversedAssets/City Builder Urban/URP/Scenes/SmallMap.unity
     guid: 85dfb5ec6449e394798aa55e3c9f9d56
   m_configObjects: {}
