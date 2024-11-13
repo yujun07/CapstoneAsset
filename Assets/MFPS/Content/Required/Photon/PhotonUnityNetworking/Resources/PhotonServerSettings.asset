@@ -56,7 +56,6 @@ MonoBehaviour:
   - SyncCustomizer
   - SyncDamage
   - SyncOffAmmoGrenade
-  - PlayLocalFireAudio
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 0
