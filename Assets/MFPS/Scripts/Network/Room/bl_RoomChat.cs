@@ -106,7 +106,7 @@ public class bl_RoomChat : bl_RoomChatBase
             senderName = string.IsNullOrEmpty(sender.NickName) ? $"Player {sender.ActorNumber}" : sender.NickName;
         }
 
-        string txt = string.Format("[{0}] [{1}]:{2}", messageTarget.ToString().ToUpper(), senderName, message);
+        string txt = string.Format("[{0}] [{1}] : {2}", messageTarget.ToString().ToUpper(), senderName, message);
         this.messages.Add(txt);
         if (messages.Count > messageBufferLenght)
         {

@@ -276,7 +276,7 @@ public class bl_Lobby : bl_PhotonHelper, IConnectionCallbacks, ILobbyCallbacks, 
     {
         connectionState = LobbyConnectionState.WaitingForUserName;
         //if (!rememberMe)
-        //{
+        //{c
             //string storedNick = PropertiesKeys.GetUniqueKey("playername");
             //if (!PlayerPrefs.HasKey(storedNick) || !bl_GameData.Instance.RememberPlayerName)
             //{
@@ -378,21 +378,22 @@ public class bl_Lobby : bl_PhotonHelper, IConnectionCallbacks, ILobbyCallbacks, 
     /// </summary>
     public void AutoMatch()
     {
-        if (isSeekingMatch)
-            return;
+        Cover.SetActive(true);
 
-        isSeekingMatch = true;
-        StartCoroutine(DoSearch());
-        IEnumerator DoSearch()
-        {
-            //active the search match UI
-            bl_LobbyUI.Instance.SeekingMatchUI.SetActive(true);
-            // This is not actually needed :)
-            yield return new WaitForSeconds(3);
-            PhotonNetwork.JoinRandomRoom();
-            isSeekingMatch = false;
-            bl_LobbyUI.Instance.SeekingMatchUI.SetActive(false);
-        }
+        var roomInfo = bl_LobbyRoomCreator.Instance.GSTAR();
+        AUTOSET(roomInfo);
+
+        //StartCoroutine(DoSearch());
+        //IEnumerator DoSearch()
+        //{
+        //    //active the search match UI
+        //    bl_LobbyUI.Instance.SeekingMatchUI.SetActive(true);
+        //    // This is not actually needed :)
+        //    yield return new WaitForSeconds(3);
+        //    PhotonNetwork.JoinRandomRoom();
+        //    isSeekingMatch = false;
+        //    bl_LobbyUI.Instance.SeekingMatchUI.SetActive(false);
+        //}
     }
 
     /// <summary>
@@ -476,6 +477,44 @@ public class bl_Lobby : bl_PhotonHelper, IConnectionCallbacks, ILobbyCallbacks, 
             EmptyRoomTtl = 0,
             BroadcastPropsChangeToAll = true,
         }, null);
+
+        bl_LobbyUI.Instance.blackScreenFader.FadeIn(0.3f);
+        if (bl_AudioController.Instance != null) { bl_AudioController.Instance.StopBackground(); }
+    }
+
+    public void AUTOSET(MFPSRoomInfo roomInfo)
+    {
+        SetLobbyChat(false);
+        justCreatedRoomName = roomInfo.roomName;
+        JoinedWithPassword = true;
+
+        var roomOption = new ExitGames.Client.Photon.Hashtable();
+        roomOption[PropertiesKeys.TimeRoomKey] = roomInfo.time;
+        roomOption[PropertiesKeys.GameModeKey] = roomInfo.gameMode.ToString();
+        roomOption[PropertiesKeys.SceneNameKey] = roomInfo.sceneName;
+        roomOption[PropertiesKeys.RoomRoundKey] = roomInfo.roundStyle;
+        roomOption[PropertiesKeys.TeamSelectionKey] = roomInfo.autoTeamSelection;
+        roomOption[PropertiesKeys.CustomSceneName] = roomInfo.mapName;
+        roomOption[PropertiesKeys.RoomGoal] = roomInfo.goal;
+        roomOption[PropertiesKeys.RoomFriendlyFire] = roomInfo.friendlyFire;
+        roomOption[PropertiesKeys.MaxPing] = roomInfo.maxPing;
+        roomOption[PropertiesKeys.RoomPassword] = roomInfo.password;
+        roomOption[PropertiesKeys.WithBotsKey] = roomInfo.withBots;
+
+        PhotonNetwork.JoinOrCreateRoom(roomInfo.roomName, new RoomOptions()
+        {
+            MaxPlayers = (byte)roomInfo.maxPlayers,
+            IsVisible = true,
+            IsOpen = true,
+            CustomRoomProperties = roomOption,
+            CleanupCacheOnLeave = true,
+            CustomRoomPropertiesForLobby = roomOption.Keys.Select(x => x.ToString()).ToArray(),
+            PublishUserId = true,
+            EmptyRoomTtl = 0,
+            BroadcastPropsChangeToAll = true,
+        }, null);
+
+        Cover.SetActive(false);
 
         bl_LobbyUI.Instance.blackScreenFader.FadeIn(0.3f);
         if (bl_AudioController.Instance != null) { bl_AudioController.Instance.StopBackground(); }

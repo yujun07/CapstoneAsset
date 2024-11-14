@@ -32,6 +32,27 @@ public class bl_LobbyRoomCreator : MonoBehaviour, IConnectionCallbacks, ILobbyCa
         return room;
     }
 
+    public MFPSRoomInfo GSTAR()
+    {
+        var mode = GameModeInfo;
+        var room = new MFPSRoomInfo();
+
+        room.roomName = "GSTAR";
+        room.mapName = Map.ShowName;
+        room.sceneName= Map.RealSceneName;
+        room.maxPlayers = 2;
+        room.maxPing = 1000;
+        room.goal = 50;
+        room.gameMode = mode.gameMode;
+        room.time = 300;
+        room.password = Password;
+        room.friendlyFire = FriendlyFire;
+        room.autoTeamSelection = AutoTeamSelection;
+        room.withBots = false;
+        room.roundStyle = PerRoundGame;
+        return room;
+    }
+
     #region Photon Callbacks
 
     public void OnConnected()

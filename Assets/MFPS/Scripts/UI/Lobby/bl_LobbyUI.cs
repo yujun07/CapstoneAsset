@@ -542,7 +542,10 @@ public class bl_LobbyUI : MonoBehaviour
     public static void ShowOverAllMessage(string text) => Instance.messageWindow?.ShowMessage(text);
     public static void ShowConfirmationWindow(string text, Action onAccept, Action onCancel = null) => Instance.confirmationWindow?.AskConfirmation(text, onAccept, onCancel);
 
-    public void AutoMatch() { bl_Lobby.Instance.AutoMatch(); }
+    public void AutoMatch()
+    {
+        bl_Lobby.Instance.AutoMatch();
+    }
     public void CreateRoom() { bl_Lobby.Instance.CreateRoom(); }
     public void SetRememberMe(bool value) { bl_Lobby.Instance.SetRememberMe(value); }
     #endregion
