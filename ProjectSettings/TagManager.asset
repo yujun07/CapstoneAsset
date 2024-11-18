@@ -19,6 +19,7 @@ TagManager:
   - Remote
   - IgnoreBullet
   - Sniper
+  - Ladder
   layers:
   - Default
   - TransparentFX

@@ -263,7 +263,7 @@ public class bl_FirstPersonController : bl_FirstPersonControllerBase
     }
     #endregion
 
-    
+
     /// <summary>
     /// Triggered when the state of this player controller has changed.
     /// </summary>
@@ -575,8 +575,8 @@ public class bl_FirstPersonController : bl_FirstPersonControllerBase
         slideForce = slideSpeed;//slide force will be continually decreasing
         speed = slideSpeed;
         //playerReferences.gunManager.HeadAnimator.Play("slide-start", 0, 0); // if you want to use an animation instead
-        if(bl_RoomMenu.Instance.isCursorLocked) mouseLook.SetTiltAngle(slideCameraTiltAngle);
-        
+        if (bl_RoomMenu.Instance.isCursorLocked) mouseLook.SetTiltAngle(slideCameraTiltAngle);
+
         if (slideSound != null)
         {
             m_AudioSource.clip = slideSound;
@@ -695,7 +695,7 @@ public class bl_FirstPersonController : bl_FirstPersonControllerBase
                 m_Ladder.Exiting = true;
                 bool wasControllable = isControlable;
                 isControlable = false;
-                
+
                 StartCoroutine(MoveTo(m_Ladder.GetNearestExitPosition(m_Transform), () =>
                 {
                     SetActiveClimbing(false);
@@ -1182,11 +1182,20 @@ public class bl_FirstPersonController : bl_FirstPersonControllerBase
     /// 
     /// </summary>
     /// <param name="other"></param>
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
         if (!photonView.IsMine) return;
 
-        CheckLadderTrigger(other);
+        if (bl_GameInput.Interact()) CheckLadderTrigger(other);
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(!isClimbing && other.gameObject.tag == "Ladder") bl_InputInteractionIndicator.ShowIndication(bl_Input.GetButtonName("Interact"), bl_GameTexts.LadderAttach);
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.gameObject.tag == "Ladder") bl_InputInteractionIndicator.SetActiveIfSame(false, bl_GameTexts.LadderAttach);
     }
 
     /// <summary>

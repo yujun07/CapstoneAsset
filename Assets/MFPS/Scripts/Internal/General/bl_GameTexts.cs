@@ -23,6 +23,7 @@
     public const string OpenDoor = "Open door";
     public const string CloseDoor = "Close door";
     public const string JumpOffLadder = "Jump off of ladder";
+    public const string LadderAttach = "Attaching a ladder";
     public const string TryAgain = "Try again";
     public const string Ok = "Ok";
 

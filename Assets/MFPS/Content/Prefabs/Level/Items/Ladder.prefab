@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 114502703818951316}
   m_Layer: 0
   m_Name: Ladder
-  m_TagString: Untagged
+  m_TagString: Ladder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -379,7 +379,7 @@ GameObject:
   - component: {fileID: 362367968264088854}
   m_Layer: 2
   m_Name: Bottom Trigger
-  m_TagString: Untagged
+  m_TagString: Ladder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -432,7 +432,7 @@ GameObject:
   - component: {fileID: 362367968264009566}
   m_Layer: 2
   m_Name: Top Trigger
-  m_TagString: Untagged
+  m_TagString: Ladder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
