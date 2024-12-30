@@ -76,15 +76,15 @@ MonoBehaviour:
   OnDisconnectScene: MainMenu
   highLightColor: {r: 0.44827604, g: 0, b: 1, a: 1}
   AllScenes:
+  - ShowName: Trad
+    m_Scene: {fileID: 102900000, guid: 1d35c8ff8df44934ab0d5619746c0699, type: 3}
+    RealSceneName: Map_v2
+    Preview: {fileID: 21300000, guid: e67a76e6b9d468a47a7a83172aa87b84, type: 3}
+    NoAllowedGameModes: 02000000
   - ShowName: Xylaris
     m_Scene: {fileID: 102900000, guid: 85dfb5ec6449e394798aa55e3c9f9d56, type: 3}
     RealSceneName: SmallMap
     Preview: {fileID: 21300000, guid: 9c0002cebbe8ad749abb89f20b1267dc, type: 3}
-    NoAllowedGameModes: 02000000
-  - ShowName: Taeng
-    m_Scene: {fileID: 102900000, guid: 1d35c8ff8df44934ab0d5619746c0699, type: 3}
-    RealSceneName: Map_v2
-    Preview: {fileID: 21300000, guid: 6f8d79613e0b35346a20b9b4def9b25b, type: 3}
     NoAllowedGameModes: 02000000
   AllWeapons:
   - Name: MP5A7
